@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.1
+//		V 3.2
 //------------------------------------*/
 @mixin wh($width, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -66,6 +66,12 @@
 	width: $width;
 	height: $height;
 	@include border-radius($width / 2);
+}
+@mixin picImg() {
+	height: auto;
+	display: block;
+	margin: 0 auto;
+	@include VerticalAlign;
 }
 
 
