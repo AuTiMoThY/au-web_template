@@ -1,8 +1,8 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.2
+//		V 3.4
 //------------------------------------*/
-@mixin wh($width, $height:$width) {
+@mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
 		width: $width;
 		height: $height;
@@ -35,9 +35,7 @@
 	display: block;
 }
 @mixin hover($top:1px, $left:1px) {
-	position: relative;
-	top: $top;
-	left: $left;
+	@include translate($top, $left);
 }
 @mixin align-C() {
 	display: table-cell;
@@ -71,10 +69,17 @@
 	height: auto;
 	display: block;
 	margin: 0 auto;
-	@include VerticalAlign;
 }
-
-
+@mixin ib {
+  display: inline-block;
+  vertical-align: top;
+  padding:0;
+  background:none;
+  background-image:none
+}
+@mixin atRoot() {
+	@at-root { @content; }/*at-root*/
+}
 
 
 
