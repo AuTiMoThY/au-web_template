@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$cnt_width: 1024px;
+$cnt_width: 960px;
 
 $index_youtube_w: 285px;
 $index_youtube_h: 180px;
@@ -15,12 +15,14 @@ $header_h: 73px;
 //------------------------------------*\
 //		color
 //------------------------------------*/
-$normal_color: #ffd398;
-$normal_color2: #f79b9f;
+$normal_color: #794916;
+$normal_color2: #a7dcd7;
 
 $hover_color: #bc0021;
 $footer_color: #c6c6c6;
 
+$DF_color: #595757;
+$bg_color: #fafafa;
 
 //------------------------------------*\
 //		font
@@ -28,7 +30,7 @@ $footer_color: #c6c6c6;
 $normal_font: "Microsoft JhengHei", "微軟正黑體", Arial, "Helvetica Neue", Helvetica;
 $normal_font2: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $ff-CenturyGothic: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
-$ff-Verdana: Verdana, Geneva, sans-serif;
+$ff-Verdana: Verdana, "Geneva", sans-serif;
 
 $fz-XL: 19px;
 $fz-LL: 17px;

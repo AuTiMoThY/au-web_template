@@ -8,27 +8,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title></title>
+
 <?php
-//meta SEO
-  include_once 'inc/meta_seo.php';
+// -------------------------------
+// SEO
+// CSS
+// Script in the HEAD
+// -------------------------------
+  include_once 'inc/HEAD.php';
  ?>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="favicon.ico" />
-
-<link rel="stylesheet" href="css/reset.css" />
-<link rel="stylesheet" href="css/style.css" />
-
-<script src="js/libs/modernizr-2.7.1.dev.js"></script>
-<script src="js/ModernizrAu.js"></script>
-<!--  angularJs
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
-<script src="js/controllers.js"></script>
- -->
 
 <?php
 //app
-  include_once 'inc/app.php';
+  include_once 'inc/Social.php';
  ?>
 
 <!--[if lt IE 9]>
@@ -41,16 +34,12 @@
 
 
 
-
-<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.11.1.js"><\/script>')</script>
-<script src="js/libs/jquery.easing.1.3.js"></script>
-<script src="js/libs/jquery.mousewheel.js"></script>
-<!-- <script src="js/au.js"></script> -->
-<!-- <script src="asset/FlexSlider/jquery.flexslider.js"></script> -->
-
-
+<?php
+// -------------------------------
+// Script in the FOOT
+// -------------------------------
+  include_once 'inc/ScriptFOOT.php';
+ ?>
 
 <?php
 // -------------------------------
@@ -58,6 +47,6 @@
 // -------------------------------
   include_once 'inc/ga.php';
  ?>
- 
+
 </body>
 </html>

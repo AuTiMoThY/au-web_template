@@ -15,6 +15,9 @@
 	
 -------------------------------------------------------------------------------
 
+	foundation
+
+
 	mix by AuTiMoThY 20140606
 */
 
@@ -34,6 +37,10 @@ html {
 }
 body {
 	font-family: "PMingLiU", \65B0\7EC6\660E\4F53, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	line-height: 1;
+	position: relative;
 }
 
 /* Let's default this puppy out
@@ -49,6 +56,8 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot
 
 /* force a vertical scrollbar to prevent a jumpy page */
 html {overflow-y: scroll;}
+
+html,body { font-size:100%;}
 
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
@@ -72,7 +81,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 /* Responsive images and other embedded objects
    Note: keeping IMG here will cause problems if you're using foreground images as sprites.
    If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
-img, object, embed {max-width: 100%;}
+img, object, embed {max-width: 100%; height: auto;}
 
 /* we use a lot of ULs that aren't bulleted.
 	don't forget to restore the bullets within content. */
@@ -97,7 +106,7 @@ a { font-size: 100%; vertical-align: baseline; background: transparent; text-dec
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 a:active, a:hover {outline: 0; }
-
+a:focus { outline:none; }
 
 /* Text-level semantics
    ========================================================================== */
@@ -268,7 +277,8 @@ input[type="checkbox"] {vertical-align: bottom;}
 
 select, input, textarea {font: 99% sans-serif;}
 
-
+textarea {height:auto;min-height:50px;}
+select {width:100%;}
 
 /* Tables
    ========================================================================== */
@@ -321,9 +331,31 @@ a, input[type="radio"], input[type="checkbox"] {cursor: pointer; }
 
 
 
+img {
+	-ms-interpolation-mode:bicubic;
+	display: inline-block;
+	vertical-align: middle;
+}
+a img{ border:none;}
 
+h1,h2,h3,h4,h5,h6 {
+	font-family:"Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+	font-weight:bold;
+	font-style:normal;
+	text-rendering:optimizeLegibility;
+	margin-top:0.2em;
+	margin-bottom:0.5em;
+	line-height:1.2125em;
+}
 
-
+p {
+	font-family:inherit;
+	font-weight:normal;
+	font-size:1em;
+	line-height:1.6;
+	margin-bottom:1.25em;
+	text-rendering:optimizeLegibility;
+}
 
 
 /* let's clear some floats */

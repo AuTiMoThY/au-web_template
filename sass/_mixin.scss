@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.4
+//		V 3.6
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -24,6 +24,9 @@
 	} @else if type-of($name) == color {
 		//  background-color
 		background-color: $name;
+	} @else if $name == "fixed" or $name == "scroll" {
+		$atta: $name;
+		background-attachment: $atta;
 	} @else {
 		background: image-url(#{$name}) $bgpx $bgpy $repeat;
 	}
@@ -74,11 +77,16 @@
   display: inline-block;
   vertical-align: top;
   padding:0;
-  background:none;
   background-image:none
 }
 @mixin atRoot() {
 	@at-root { @content; }/*at-root*/
+}
+@mixin ul() {
+	margin-bottom: 1.25em;
+	list-style-position: outside;
+	font-size: 1em;
+	line-height: 1.6;
 }
 
 

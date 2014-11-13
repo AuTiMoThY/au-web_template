@@ -1,42 +1,22 @@
 @charset "UTF-8";
+
 /******************************************/
-/*          Oapu
+/*          ada
 /*			by AuTiMoThY
 /******************************************/
 /*
 * TOC
 * 
-* banner slide  輪播
-* buttons
-*  - login_btn
-*  - pagesBtn
-*  - faq_btn
-*  - toEdit_btn
-*  - input upload_btn
-* nav hd
-*  - nav_item
+* btn
+* form input textarea
+* headerWrap
 * main
-*  - main index_page
-*  - main _page
-* container
-* tabs
 * banner
-* aside leftAside
-* page_cnt
-*  - page_cnt about_page
-*  - page_cnt news_page
-*  - page_cnt story_page
-*  - page_cnt info_page
-*  - page_cnt workshop_page
-*  - page_cnt links_page
-*  - page_cnt faq_page
-*  - page_cnt register_page
-*  - page_cnt member_page
-*  - page_cnt donation_page
-* forget_php
-* go_top
-* float_block
-* font
+* aside
+* aside nav
+* content
+* creatDealer
+* point
 */
 
 @import "_variable";
@@ -44,1042 +24,839 @@
 @import "_font.scss";
 @import "compass";
 @import "ceaser-easing";
-// @include font-face("Lucida_Calligraphy", font-files("LCALLIG.ttf", "LCALLIG.woff"));
+
+// @include font-face("expressway", font-files("expressway rg.ttf", "expressway rg.woff"));
 
 // @import _animate.sass
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+		
+\*------------------------------------------------------------------------*/
 .hide_txt {
-	@include hide_txt;
+    @include hide_txt;
 }
+
 .wrapper {
-	@include wh(1024px, 100%);
-	margin: 0 auto;
+    @include wh($cnt_width, 100%);
+    margin: 0 auto;
+    position: relative;
+}
+.well {
+	width: $cnt_width;
+	margin: auto;
 	position: relative;
-	#index #main & {
-		padding-top: 40px;
-	}
 }
 
 html, body {
-	min-height: 100%;
+    min-height: 100%;
 }
 
 body {
-	font-size: 19px;
-	&:before, &:after {
-		@include psudoClass;
-		height: 3px;
-		background-color: #BB2F1B;
-	}
-	&#index {
-		&:after {
-			height:0px;
-		}
-		#main {
-			position: absolute;
-			bottom: 25px;
-		}
-		footer {
-			position: absolute;
-			bottom: 0;
-		}
-	}
+    @include bg('bg.jpg');
+    @include background-size(cover);
+    @include bg(scroll);
+	font-family: $normal_font;
 }
 
-%texture {
-	@include psudoClass;
-	@include wh(100%, 52px);
-	@include bgImg('texture.png', repeat-x);
-	position: absolute;
-	z-index: -1;
+[class*="row_"] {
+    width: 100%;
 }
-header {
-	&.hd {
-		@include wh(100%, 55px);
-		@include bgImg('bg_hd2.png');
-		@include bg(35%, 2px);
-		padding: 2px 0 1px;
-		position: relative;
-		&:before {
-			@extend %texture;
-		}
-	}
-	&#logo {
-		@include wh-bgImg(logo, png);
-		@include bgImg('logo.png');
-		@include VerticalAlign;
-	}
+
+[class*="col_"] {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
 }
-footer {
-	@include wh(100%, 25px);
-	position: relative;
-	bottom: 0;
-	z-index: 999;
-	/* font */
-	color: #fff;
-	font-size: 11px;
-	line-height: 25px;
-	text-align: center;
-	a {
+
+.pic {
+    img {
+        @include picImg;
+    }
+}
+
+.swing {
+    -webkit-transform-origin: 50% 80%;
+    -ms-transform-origin: 50% 80%;
+    transform-origin: 50% 80%;
+}
+
+.temporary {
+    display: block;
+    margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	btn
+\*========================================================================*/
+@import "module/_pageBtn";
+.btn {
+	@include bg(#727171);
+	// @include transition(all 0.3s ease-in-out);
+	display: table;
+	a, input {
+		padding: 6px 13px;
 		color: #fff;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-	.wrapper {
-		@include bgImg('bg_hd2.png');
-		@include bg(center, 0px);
-	}
-	&:before {
-		@extend %texture;
-		height: 25px;
-	}
-	&:after {
-		@include psudoClass;
-		width: 100%;
-		height: 3px;
-		background-color: #BB2F1B;
-		position: absolute;
-		bottom: 0;
-
-	}
-}
-
-.temporary>img {
-	display: block;
-	margin: 0 auto;
-}
-
-.pic_aside {
-	@include wh(210px + 3px, 125px + 3px);
-	overflow: hidden;
-	@include box-shadow(rgba(115, 56, 46, 0.75) 2px 2px 2px, rgba(101, 38, 28, 1) 2px 2px 4px 0px inset);
-	border: 3px solid #fff;
-	position: relative;
-	z-index: 1;
-	&:before {
-		@include psudoClass;
-		@include wh(210px + 3px, 125px + 3px);
-		@include box-shadow(rgba(101, 38, 28, 1) 2px 2px 4px 0px inset);
-		position: absolute;
-		z-index: 2;
-	}
-	img {
-		width: 100%;
-		position: relative;
-		display: block;
-		margin: 0 auto;
-		z-index: 1;
-	}
-	.index_page & {
-		@include wh(190px + 3px, 130px + 3px);
-		float: left;
-		position: absolute;
-	}
-}
-
-
-
-/*------------------------------------*\
-/*------------------------------------*\
-/*------------------------------------*\
-	>	banner slide  輪播
-\*------------------------------------*/
-#bodyBg {
-	width: 100%;
-	min-height: 100%;
-	position: relative;
-	// z-index: 990;
-	.BG {
-		@include wh(100%);
-		min-height: 100%;
-		position: absolute;
+		font-size: $fz-L;
+		font-weight: bolder;
+		letter-spacing: 1px;
 	}
 	a {
-		@include wh(100%);
-		display: block;
+		display: table-cell;
 	}
-}
-#bodyBgCtrl {
-	position: absolute;
-	right: 0;
-	bottom: 10px;
-	margin-right: 50px;
-	z-index: 999;
-	li {
-		@include wh(22px);
-		background: transparent url('../css/themes/default/bullets.png') no-repeat;
-		&.active {
-			@include bg(0, -21px);
-		}
-	}
-}
-
-
-
-/*------------------------------------*\
-	>	buttons
-\*------------------------------------*/
-/*------------------------------------*\
-	>>	login_btn
-	import
-\*------------------------------------*/
-@import "module/_loginBtn.scss";
-
-
-
-
-/*------------------------------------*\
-	>>	pagesBtn
-	import
-\*------------------------------------*/
-@import "module/_pageBtn.scss";
-
-
-
-/*------------------------------------*\
-	>>	faq_btn
-\*------------------------------------*/
-.faq_btn {
-	@include wh-bgImg(faq_btn, png);
-	@include bgImg('faq_btn.png');
-	float: right;
-	a {
-		@include wh(100%);
-		display: block;
+	input {
+		border: none;
+		background: none;
 	}
 	&:hover {
-		position: relative;
-		top: 1px;
-		left: 1px;
-	}
-}
-
-
-
-/*------------------------------------*\
-	>>	toEdit_btn
-\*------------------------------------*/
-.toEdit_btn {
-	@include wh(95px, 25px);
-	@include border-radius(5px);
-	background-color: #8e4429;
-	position: relative;
-	margin-top: 15px;
-	&:before {
-		content: '';
-		display: inline-block;
-		@include wh(100%);
-		@include bgImg('txts.png');
-		@include bg(-267px, -70px);
-		position: absolute;
-		z-index: 1;
-	}
-	@at-root{
-		%btn {
-			margin-top: 0;
-			float: left;
+		@include bg(#007BBF);
+		@include box-shadow(1px 1px 3px #999);
+		a, input {
+			color: #fff;
 		}
-	}
-	&.giveUp {
-		@extend %btn;
-		margin-right: 10px;
-		&:before {
-			@include bg(-364px, -70px);
-		}
-	}
-	&.confirm {
-		@extend %btn;
-		&:before {
-			@include bg(-364px, -110px);
-		}
-	}
-	a {
-		@include wh(100%);
-		display: inline-block;
-		position: absolute;
-		z-index: 2;
-	}
-	&:hover {
-		@include hover(-1, -1);
-		@include box-shadow(#333 1px 1px 3px);
 	}
 	&:active {
 		@include hover;
-		@include box-shadow(inset #333 1px 1px 3px);
 	}
-}
-.editBtns {
-	@include wh(200px, 25px);
-	margin: 50px auto 0;
-}
-
-
-
-/*------------------------------------*\
-	>>	input upload_btn
-\*------------------------------------*/
-input.upload_btn {
-	@include wh(80px, 25px);
-	background-color: #8e4429;
-	border: 1px solid #c1988a;
-	@include border-radius(5px);
-	color: #fff;
-	@at-root {
-		.member_cnt & {
-			@include wh(95px, 25px);
-			@include bgImg('txts.png');
-			@include bg(-268px, -111px);
-			position: relative;
-			z-index: 2;
-			&~span {
-				@include psudoClass;
-				@include wh(95px, 25px);
-				background-color: #8e4429;
-				@include border-radius(5px);
-				position: absolute;
-				z-index: 1;
-				bottom: 0;
-			}
-			&:hover {
-				@include hover(-1, -1);
-				@include box-shadow(#333 1px 1px 3px);
-			}
-			&:active {
-				@include hover;
-				@include box-shadow(inset #333 1px 1px 3px);
-			}
+	form.dataForm & {
+		display: inline-block;
+		input {
+			padding: 6px 18px;
 		}
-	}//at-root > .member_cnt .upload_btn
+	}
+}
+.submit_btn {
+	margin-right: 10px;
+}
+.btn {
+    position: relative;
+    /*padding: 8px 30px;*/
+    border: 0;
+    /*margin: 10px 1px;*/
+    cursor: pointer;
+    border-radius: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255, 255, 255, .84);
+    // -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+    // transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+    @include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+    outline: 0!important
+}
+@import "_materialBtn";
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	form input textarea
+\*========================================================================*/
+form input[type="text"], 
+form input[type="email"], 
+form input[type="password"],
+form input[type="telephone"],
+form textarea,
+form select {
+	max-width:500px;
+	height: 30px;
+	background:#f4f4f4;
+	border:2px solid #bec2c5;
+	padding:4px 0;
+	color:#303030;
+	text-indent:8px;
+	@include box-shadow(inset 3px 3px 0 rgba(0,0,0,0.06));
+}
+form select {
+	@include box-shadow(none);
+	margin: 0;
 }
 
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	loading
+\*========================================================================*/
+// body {
+//   width: 100%;
+//   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+//   opacity: 1;
+//   -moz-transition: opacity 1s ease-out;
+//   -o-transition: opacity 1s ease-out;
+//   -webkit-transition: opacity 1s ease-out;
+//   transition: opacity 1s ease-out;
+// }
 
+// .loading {
+//   max-width: 100%;
+//   max-height: 100%;
+//   overflow: hidden;
+//   background: none;
+// }
+// .loading #Container {
+//   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+//   opacity: 0;
+// }
+// .loading:before {
+//   content: 'LOADING';
+//   display: block;
+//   margin: 20% 0 0;
+//   text-align: center;
+//   color: #595757;
+//   font-weight: bold;
+//   font-size: 2em;
+//   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
+//   opacity: 0.5;
+// }
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	headerWrap
+\*========================================================================*/
+#headerWrap {
+	@include wh(100%, 80px);
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE3MWM2MSIgc3RvcC1vcGFjaXR5PSIwLjYiLz4KICAgIDxzdG9wIG9mZnNldD0iMSUiIHN0b3AtY29sb3I9IiMxNzFlNjMiIHN0b3Atb3BhY2l0eT0iMC42Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzAwN2NiZiIgc3RvcC1vcGFjaXR5PSIwLjYiLz4KICAgIDxzdG9wIG9mZnNldD0iODAlIiBzdG9wLWNvbG9yPSIjMTcxYzYxIiBzdG9wLW9wYWNpdHk9IjAuNiIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMTcxYzYxIiBzdG9wLW9wYWNpdHk9IjAuNiIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgba(23,28,97,0.6) 0%, rgba(23,30,99,0.6) 1%, rgba(0,124,191,0.6) 50%, rgba(23,28,97,0.6) 80%, rgba(23,28,97,0.6) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(23,28,97,0.6)), color-stop(1%,rgba(23,30,99,0.6)), color-stop(50%,rgba(0,124,191,0.6)), color-stop(80%,rgba(23,28,97,0.6)), color-stop(100%,rgba(23,28,97,0.6))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgba(23,28,97,0.6) 0%,rgba(23,30,99,0.6) 1%,rgba(0,124,191,0.6) 50%,rgba(23,28,97,0.6) 80%,rgba(23,28,97,0.6) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgba(23,28,97,0.6) 0%,rgba(23,30,99,0.6) 1%,rgba(0,124,191,0.6) 50%,rgba(23,28,97,0.6) 80%,rgba(23,28,97,0.6) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgba(23,28,97,0.6) 0%,rgba(23,30,99,0.6) 1%,rgba(0,124,191,0.6) 50%,rgba(23,28,97,0.6) 80%,rgba(23,28,97,0.6) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgba(23,28,97,0.6) 0%,rgba(23,30,99,0.6) 1%,rgba(0,124,191,0.6) 50%,rgba(23,28,97,0.6) 80%,rgba(23,28,97,0.6) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99171c61', endColorstr='#99171c61',GradientType=1 ); /* IE6-8 */
 
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> nav hd
-\*----------------------------------------*/
-nav.hd {
-	@include wh(100%, 30px);
-	background-color: $normal_color;
-	ul {
-		@include wh(100%);
-	}
+}
+#logo, #flag {
+	display: inline-block;
+	vertical-align: top;
+}
+#logo {
+	@include wh(30%, 100%);
+background: rgb(23,28,97); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE3MWM2MSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUwJSIgc3RvcC1jb2xvcj0iIzAwN2NiZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMxNzFjNjEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(left,  rgb(23,28,97) 0%, rgb(0,124,191) 50%, rgb(23,28,97) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgb(23,28,97)), color-stop(50%,rgb(0,124,191)), color-stop(100%,rgb(23,28,97))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgb(23,28,97) 0%,rgb(0,124,191) 50%,rgb(23,28,97) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgb(23,28,97) 0%,rgb(0,124,191) 50%,rgb(23,28,97) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgb(23,28,97) 0%,rgb(0,124,191) 50%,rgb(23,28,97) 100%); /* IE10+ */
+background: linear-gradient(to right,  rgb(23,28,97) 0%,rgb(0,124,191) 50%,rgb(23,28,97) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#171c61', endColorstr='#171c61',GradientType=1 ); /* IE6-8 */
+	padding-top: 10px;
+
+}
+#UIB_logo {
+	@include wh(200px, 60px);
+	display: block;
+	margin: 0 auto;
+}
+#flag {
+	padding-top: 25px;
+	// padding-left: 15%;
+	float: right;
 	li {
-		@include wh(( 1024px / 8 ) - 2px, 100%);
-		border-left: 1px dotted #fff;
-		&:last-of-type {
-			border-right: 1px dotted #fff;
+		@include circle(22px);
+		@include bg('national_flag_03.png', 0, -4px);
+		margin-left: 10px;
+		@each $national, $bg-x in (national01, -3px),
+								  (national02, -30px),
+								  (national03, -57px),
+								  (national05, -111px),
+								  (national06, -138px),
+								  (national07, -165px),
+								  (national08, -192px),
+								  (national09, -219px),
+								  (national10, -246px),
+								  (national11, -273px),
+								  (national12, -300px),
+								  (national13, -327px) {
+			&.#{$national} {
+				@include bg($bg-x, -4px);
+			}
 		}
-	}
-	a {
-		&:hover, &.active {
-			background-color: $normal_color2;
-		}
-	}
-	@at-root {
-	/*----------------------------------------*\
-		>> nav_item
-	\*----------------------------------------*/
-		a[class*="nav_item"] {
-			@include wh(100%);
-			@include bgImg('navTxt.png');
+		@include box-shadow(1px 1px 3px #333);
+		a {
+			@include wh;
 			display: block;
 		}
-		@each $item, $x, $y in (nav_item1, 30px, 7px),
-							   (nav_item2, -101px, 7px),
-							   (nav_item3, -247px, 7px),
-							   (nav_item4, -397px, 7px),
-							   (nav_item5, -524px, 7px),
-							   (nav_item6, -653px, 7px),
-							   (nav_item7, -783px, 7px),
-							   (nav_item8, -900px, 8px) {
-					a.#{$item} {
-						@include bg(#{$x}, #{$y});
-					}
-		}
-	}//at-root .nav_item
-}
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> main
-\*----------------------------------------*/
-#main {
-	@at-root {
-	/*----------------------------------------*\
-		>> main index_page
-	\*----------------------------------------*/
-		&.index_page {
-			@include wh(100%, 210px);
-			background-color: $normal_color;
-			position: relative;
-			z-index: 0;
-			padding-top: 0 !important;
-			margin-top: 2px;
-			&:before {
-				@extend %texture;
-				height: 40px;
-				border-bottom: 2px solid #9f4c29;
-			}
-			#logo1 {
-				@include wh-bgImg(logo1, png);
-				@include bgImg('logo1.png');
-				position: absolute;
-			}
-			.container {
-				@include wh(100%);
-				padding: 17px 0;
-			}
-			nav {
-				width: 580px;
-				margin: 10px 0;
-				// float: right;
-				position: absolute;
-				right: 0;
-				top: -5px;
-			}
-			.youtube {
-				margin-left: 200px;
-			}
-		}
-		.news_list.news_list {
-			margin-left: 210px;
-			/*font*/
-			color: #8e4429;
-			&:first-of-type {
-				margin-bottom: 10px;
-			}
-			h2.title.title {
-				width: 100%;
-				@include ellipsis;
-				margin: 0;
-				/*font*/
-				font-size: 15px;
-				font-weight: bolder;
-				line-height: 21px;
-				letter-spacing: 1px;
-			}
-			section {
-				width: 100%;
-				min-height: 21px;
-				@include ellipsis;
-				/*font*/
-				font-size: 11px;
-				line-height: 21px;
-				letter-spacing: 2px;
-			}
-		}
-		.news_inf {
-			span {
-				@include bgImg('icons.png');
-				display: inline-block;
-				/*font*/
-				color: #fff;
-				font-size: 11px;
-				font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-				&.time {
-					@include wh(100px, 14px);
-					padding-left: 22px;
-				}
-				&.more {
-					@include wh(66px, 14px);
-					@include bgImg('icons.png');
-					@include bg(0, -34px);
-					padding-left: 13px;
-					&:hover {
-						@include hover();
-					}
-				}
-				a {
-					color: #fff;
-				}
-			}
-		}
-		.index_page .tab_content {
-			position: relative;
-		}
-	}//at-root #main.index_page
-	@at-root {
-	/*----------------------------------------*\
-		>> main _page
-	\*----------------------------------------*/
-		&[class$="_page"] {
-			padding-top: 30px;
-		}
-	}//at-root #main.about_page
-}
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> container
-\*----------------------------------------*/
-.container {
-	&.col_2 {
-		@include wh(1024px - 274px, auto);
-		margin-left: 274px;
-		padding: 0 20px;
-	}
-	&.inf_col_1, &.inf_col_2 {
-		@include wh((1024px / 2) - 14px, auto);
-	}
-	&.inf_col_1 {
-		float: left;
-		margin-right: 28px;
-	}
-	&.inf_col_2 {
-		float: right;
-	}
-	.register_page & {
-		@include wh(100%, auto);
-		border: 1px solid $normal_color;
-		@include border-radius($borderRadius);
 	}
 }
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> tabs
-	import
-\*----------------------------------------*/
-//tabs
-@import "module/_tabs.scss";
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> banner
-\*----------------------------------------*/
-.banner {
-	@include wh(100%, 170px);
-	&:after {
-		@include psudoClass;
-		@include wh(100%, 12px);
-		@include bgImg('banner_shadow.png');
-		@include bg(50%, 50%);
-		position: relative;
-		top: 100%;
-	}
-	@each $page in about, news, story, info, workshop, links, faq, register, member, donation {
-		##{$page} & {
-			background: image-url('bg-#{$page}.jpg') 50% 50% no-repeat;
-			background-color: $normal_color2;
-		}
-	}
-}
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> aside leftAside
-\*----------------------------------------*/
-@import "module/_aside.scss";
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> page_cnt
-\*----------------------------------------*/
-.page_cnt {
-	/*font*/
-	color: #8e4429;
-	line-height: 19px;
-	letter-spacing: 1px;
+#navBt {
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
 	li {
-		float: none;
+		// height: 21px;
+		margin-left: 15px;
+		color: #fff;
 	}
-	.cnt_block {
-		@include wh(98%, auto);
-		border: 1px solid $normal_color;
-		@include border-radius($borderRadius);
-		margin: 0 auto 30px;
+	a {
+		height: 30px;
+		color: #fff;
+		font-size: $fz-L;
+		line-height: 30px;
+	}
+}
+
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	main
+\*========================================================================*/
+#main {
+	margin-top: 5em;
+	aside {
+		width: 25%;
+	}
+}
+.main_header {
+	@include wh(100%, 60px);
+	@include bg(#D0C7B5);
+	padding: 18px;
+	span {
+		@include wh(txt, png);
+		@include bg('txt.png');
+	}
+	&~section {
+		position: relative;
+	}
+}
+aside {
+	width: 240px;
+}
+.container {
+	@include bg(#fff);
+	margin-bottom: 10%;
+}
+
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	banner
+\*========================================================================*/
+.flexslider {
+	width: 100%;
+	height: 400px;
+	position: relative;
+}
+#hcarouselcontrols {
+	position: absolute;
+	bottom: -32px;
+}
+.flex-control-nav {
+	margin: 0 auto;
+	display: table;
+}
+.slides {
+	@include wh(100%, 400px);
+	li {
+		@include wh;
+		@include background-size(cover);
+	}
+}
+.flex-direction-nav {
+	a {
+		@include wh(26px, 43px);
+		@include bg('flex_ctrl.png');
+		@include opacity(0.6);
+		top: -200px;
+		@include hide_txt;
+		&:hover {
+			@include opacity(1);
+		}
+	}
+	.flex-prev {
+		@include rotate(180deg);
+		left: 0;
+	}
+	.flex-next {
+		right: 0;
+	}
+}
+
+.banner_ft {
+	@include wh(100%, 45px);
+	@include bg(#717071);
+}
+.banner_intro {
+	width: 20%;
+	height: 70%;
+	@include background-image(linear-gradient(rgba(64, 33, 15, 0.9), rgba(64, 33, 15, 0)));
+	padding: 80px 10px 0;
+	position: absolute;
+	top: 0;
+	right: 10%;
+	z-index: 999;
+	p {
+		color: #fff;
+	}
+	.pic {
+		width: 160px;
+		height: 100px;
+		border: 1px solid #fff;
 		overflow: hidden;
 	}
-	.cnt_block_subTitle {
-		@include wh(100%, 35px);
-		background-color: $normal_color;
-		padding: 0 60px;
-		font-size: 15px;
-		line-height: 35px;
-	}
-	.cnt_block_ft {
-		@include wh(100%, 35px);
-		background-color: $normal_color;
-	}
-	h2.title {
-		@include wh(100%, 55px);
-		background-color: $normal_color2;
-		border-bottom: 1px solid $normal_color;
-		padding-left: 60px;
-		@include border-top-radius($borderRadius);
-		padding: 0 60px;
-		@include ellipsis;
-		/*font*/
-		color: #fff;
-		font-family: $normal_font;
-		line-height: 55px;
-		letter-spacing: 1px;
-	}
-	article[class*="_cnt_txt"] {
-		@include wh(100%, auto);
-		section {
-			// @include wh(100%);
-			position: relative;
-			// padding: 30px 60px;
-		}
-	}
-}
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt about_page
-\*----------------------------------------*/
-$listTitleW: 75px;
-$listTitle2W: 90px;
-$listTitle3W: 105px;
-
-.about_cnt_txt {
-	// padding: 30px 0;
-	section {
-		border-top: 1px dotted $normal_color;
-		padding: 30px 60px;
-		&:first-of-type {
-			border-top: 0;
-		}
-	}
-	h3 {
-		margin-bottom: 20px;
-		/*font*/
-		font-size: 15px;
-	}
-	li {
-		/*font*/
-		font-size: 15px;
-	}
-	p, span {
-		/*font*/
-		font-size: 12px;
-	}
 	img {
+		width: 100%;
+		margin: 0 auto;
 		display: block;
-		margin: 10px auto;
 	}
 }
-span[class*="aboutCntBlock3_txt"] {
-	width: 574px - $listTitleW;
-	display: inline-block;
-	margin-left: $listTitleW + 5px;
-	position: relative;
-	top: -19px;
-}
-span.aboutCntBlock3_txt2 {
-	width: 574px - $listTitle2W;
-	margin-left: $listTitle2W + 5px;
-}
-span.aboutCntBlock3_txt3 {
-	width: 574px - $listTitle3W;
-	margin-left: $listTitle3W + 5px;
-}
-#aboutCntBlock4 {
-	p {
-		margin-bottom: 25px;
+.slides {
+	li {
+		margin-right: 0;
 	}
 }
 
 
 
 
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt news_page
-\*----------------------------------------*/
-@import "_page-news";
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt story_page
-\*----------------------------------------*/
-.story_page {
-	.story_nor_cnt {
-		.news_time {
-			font-size: 15px;
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	aside
+\*========================================================================*/
+aside {
+	@include bg(#fff);
+	.account_block {
+		width: 100%;
+		h1 {
+			@include wh(100%, 30px);
+			@include bg(#000);
+			padding-left: 10px;
+			margin: 0;
+			color: #fff;
+			font-size: 1.2em;
+			font-family: $normal_font;
+			font-weight: normal;
+			@include text-shadow(0px 0px 2px 0px #fff);
 		}
-		.more {
-			float: right;
-		}
-	}
-}
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt info_page
-\*----------------------------------------*/
-@import "_page-info";
-
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt workshop_page
-\*----------------------------------------*/
-@import "_page-workshop";
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt links_page
-\*----------------------------------------*/
-@import "_page-links";
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt faq_page
-\*----------------------------------------*/
-.faq_page {
-	.txt5 {
-		width: 70px;
-		display: inline-block;
-	}
-	.AccordionPanelContent {
-		p {
-			padding-left: 70px;
-			margin-bottom: 10px;
-			/*font*/
-			font-size: 12px;
-			line-height: 19px;
-			letter-spacing: 1px;
-			&.reply {
-				color: #4d6950;
-			}
-		}
-		strong.q {
-			width: 100%;
-			display: inline-block;
-		}
-	}
-}
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt register_page
-\*----------------------------------------*/
-@import "_page-register";
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt member_page
-	member_cnt
-\*----------------------------------------*/
-@import "_page-member";
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	>> page_cnt donation_page
-\*----------------------------------------*/
-.donation_page {
-	.container {
-		margin-bottom: 40px;
-	}
-	p {
-		margin-bottom: 15px !important;
-	}
-	.donation_block.donation_block {
-		border-bottom: 0;
-		a {
-			color: #8e4429;
-			text-decoration: underline;
-		}
-		h1.title {
-			@include bg(0, -340px);
-		}
-		&.row_1 {
-			padding-bottom: 0;
-		}
-	}
-	.donation_cnt {
-		margin-bottom: 0;
-	}
-	.donation_cnt2 {
-		border-bottom: 1px dotted #ffd398;
-		margin-bottom: 15px;
-		img {
-			@include wh(100%, auto);
-			display: block;
-			margin: 0 auto 15px;
-		}
-	}
-	.donation_cnt3 {
-		padding-bottom: 15px;
-		p {
-			margin-bottom: 0;
-		}
-		strong {
-			display: inline-block;
-			margin-bottom: 20px;
-			font-size: 15px;
-		}
-	}
-}
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> forget_php
-\*----------------------------------------*/
-#forget {
-	/*font*/
-	color: #8e4429;
-	font: 15px/19px $normal_font;
-	letter-spacing: 1px;
-	h1 {
-		@include wh(80px, 21px);
-		@include bgImg('txts.png');
-		@include bg(-378px, -155px);
-		margin-bottom: 10px;
-	}
-	form {
-		padding-left: 20px;
 	}
 	ul {
-		@include wh(100%);
+		@include bg(#3E3A39);
+		padding: 10px;
 	}
 	li {
-		@include wh(100%, 19px);
-		margin-bottom: 10px;
-		&.confirm_li {
-			height: 25px;
-			position: relative;
-			span {
-				display: block;
-				@include wh(95px, 25px);
-				background: #8e4429;
-				@include border-radius(5px);
-				position: absolute;
-				top: 0%;
-				left: 40px;
-			}
-		}
+		float: none;
+		margin-bottom: 8px;
+		color: #fff;
+		font-size: $fz-L;
 	}
-	p {
-		width: 100%;
-		padding-left: 20px;
-		margin-top: 20px;
+	.title {
+		width: 75px;
+		display: inline-block;
 	}
-	label {
-		width: 40px;
-	}
-	input {
-		@include wh(270px, 25px);
-	}
-	.confirm_btn {
-		@include wh(95px, 25px);
-		@include bgImg('txts.png');
-		@include bg(-365px, -192px);
-		border: none;
-		margin-left: 40px;
-		display: block;
-		position: relative;
-		// &:before {
-		// 	@include psudoClass;
-		// 	@include wh(100%);
-		// 	position: absolute;
-		// 	@include bgImg('txts.png');
-		// 	@include bg(-365px, -192px);
-		// }
-		&:hover {
-			@include hover;
-		}
-	}
-}
-
-
-
-
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> go_top
-\*----------------------------------------*/
-.go_top {
-	.about_page & {
+	.accNumber {
 		float: right;
-		margin-right: 60px;
-		display: inline;
-		a {
-			margin-right: 3px;
-			/*font*/
-			color: #fff;
-			font-size: 15px;
-			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-			font-weight: bolder;
-			&:after {
-				@include psudoClass;
-				display: inline-block;
-				@include wh(0);
-				border-color: transparent transparent white transparent;
-				border-style: solid;
-				border-width: 7px 7px 11px;
-				margin-left: 3px;
-			}
-		}
-		&:hover {
-			@include scale(1.1);
-		}
 	}
-	.info_page & {
-		@include wh(100%);
-		display: block;
-		a {
-			@include wh(100%);
-			display: block;
-			color: #8e4429;
-			font-family: $normal_font;
-			font-weight: bolder;
-			line-height: 35px;
-			text-align: center;
-			&:before {
-				@include psudoClass;
-				display: inline-block;
-				@include wh(0);
-				border-color: transparent transparent #8e4429 transparent;
-				border-style: solid;
-				border-width: 7px 7px 11px;
-				margin-right: 3px;
-			}
-		}
+	.time {
+		margin-top: 30px;
 	}
 }
-
-
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> float_block
-\*----------------------------------------*/
-.float_block {
-	width: 220px;
-	position: fixed;
-	z-index: 990;
-	right: 2%;
-	top: 20%;
-	h1 {
-		@include wh-bgImg(faq, png);
-		@include bgImg('faq.png');
+/*========================================================================*\
+		>	aside nav
+\*========================================================================*/
+.asideNav {
+	ul {
+		@include bg(#fff);
+	}
+	.asideNav_item {
+		width: 100%;
+		float: none;
+		background: #efefef; /* Old browsers */
+		background: -moz-linear-gradient(top,  #efefef 1%, #ffffff 38%, #efefef 90%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#efefef), color-stop(38%,#ffffff), color-stop(90%,#efefef)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top,  #efefef 1%,#ffffff 38%,#efefef 90%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top,  #efefef 1%,#ffffff 38%,#efefef 90%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top,  #efefef 1%,#ffffff 38%,#efefef 90%); /* IE10+ */
+		background: linear-gradient(to bottom,  #efefef 1%,#ffffff 38%,#efefef 90%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efefef', endColorstr='#efefef',GradientType=0 ); /* IE6-9 */
+		@include border-radius(5px);
+		border: 1px solid #C9C9CA;
+		@include transition(all 0.3s ease-out);
 		position: relative;
-		margin-bottom: -15px;
-		margin-left: -10px;
-		z-index: 2;
+		&:before {
+			@include psudoClass;
+			@include wh(0);
+			border: {
+				style: solid;
+				width: 5px 0 5px 8px;
+				color: transparent transparent transparent #C2181F;
+			}
+			position: absolute;
+			top: 15px;
+			left: 18px;
+			@include transition(all 0.3s ease-out);
+		}
+		&.item1:hover:before {
+			border: {
+				style: solid;
+				width: 8px 5px 0px 5px;
+				color: #C2181F transparent transparent transparent;
+			}
+			left: 16px;			
+		}
+		&:hover, &.active {
+			background: #2989d8; /* Old browsers */
+			background: -moz-linear-gradient(top,  #2989d8 3%, #7db9e8 44%, #2989d8 90%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#2989d8), color-stop(44%,#7db9e8), color-stop(90%,#2989d8)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #2989d8 3%,#7db9e8 44%,#2989d8 90%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #2989d8 3%,#7db9e8 44%,#2989d8 90%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #2989d8 3%,#7db9e8 44%,#2989d8 90%); /* IE10+ */
+			background: linear-gradient(to bottom,  #2989d8 3%,#7db9e8 44%,#2989d8 90%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2989d8', endColorstr='#2989d8',GradientType=0 ); /* IE6-9 */
+		}
 	}
 	a {
-		@include wh(100%);
+		@include wh(100%, 40px);
 		display: block;
+		color: #3E3A39;
+		font-weight: bolder;
+		line-height: 40px;
+		text-indent: 40px;
+	}
+}
+.subNav {
+	display: none;
+	@include opacity(0);
+	@include border-bottom-radius(5px);
+	@include transition(all 0.3s ease-out);
+	a {
+		&:hover {
+			color: #898989;
+		}
+	}
+	&>[class*="subItem"].active a {
+		color: #898989;
+	}
+}
+.asideNav_item:hover, .asideNav_item.active {
+	.subNav {
+		display: block;
+		@include opacity(1);
 	}
 }
 
 
-/*----------------------------------------*\
-/*----------------------------------------*\
-/*----------------------------------------*\
-	> font
-\*----------------------------------------*/
-.txt1.txt1 {
-	font-size: 15px;
-	line-height: 31px;
-	text-align: center;
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	content
+\*========================================================================*/
+.content {
+	width: 74%;
+	padding: 20px;
+	h1 {
+		margin-bottom: 20px;
+		color: #3E3A39;
+		font-family: $normal_font;
+		font-size: $fz-LL;
+		font-weight: normal;
+		// @include text-shadow(0px 0px 0px 0px #3E3A39);
+	}
+	form {
+		width: 100%;
+	}
+	ul {
+		width: 100%;
+	}
+	li {
+		width: 100%;
+		float: none;
+		margin-bottom: 15px;
+	}
+	span {
+		display: inline-block;
+	}
+	.ib {
+		@include ib;
+		vertical-align: middle;
+	}
+	.title {
+		width: 130px;
+		font-size: $fz-L;
+	}
+	label, input {
+		line-height: 30px;
+	}
+	label {
+		margin-bottom: 0;
+	}
+	.btns {
+		padding-left: 150px;
+	}
+	section {
+		position: relative;
+	}
 }
-.txt2 {
-	font-size: 42px;
-	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+.btns {
+	input {
+		height: auto;
+	}
+	&.style2 {
+		padding-left: 0;
+		margin: 0 0 20px 0;
+	}
 }
-.txt3 {
-	text-align: left;
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	creatDealer
+\*========================================================================*/
+.creatDealer_tb {
+	width: 50%;
+	border: 1px solid #3E3A39;
+	tr {
+		border-bottom: 1px solid #3E3A39;
+	}
+	th {
+		@include bg(#727171);
+		color: #fff;
+		&:first-of-type {
+			width: 20%;
+			border-right: 1px solid #3E3A39;
+		}
+	}
+	td {
+		text-align: center;
+	}
+	a {
+		color: #0059AA;
+	}
 }
-.txt4 {
-	color: #657e4d;
-	font: 21px/30px Arial, "Helvetica Neue", Helvetica, sans-serif
+.creatDealerForm {
+	.title {
+		width: 180px;
+	}
+	li>input, select {
+		width: 65%;
+	}
+	.btns {
+		padding-left: 200px;
+	}
+	option {
+		line-height: 30px;
+		border-bottom: 1px solid #3E3A39;
+	}
 }
-.red {
-	color: #e60012;
-	font-size: 12px;
-	line-height: 19px;
-	letter-spacing: 1px;
+
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	point
+\*========================================================================*/
+.point_class {
+	margin-bottom: 10%;
+	select {
+		width: 20%;
+		margin-bottom: 0;
+	}
 }
-.txt5 {
-	color: #f79b9f;
-	font: 19px/19px Verdana, Geneva, sans-serif;
-	letter-spacing: 1px;
+.point_class_cnt {
+	position: relative;
+	.intro {
+		position: absolute;
+		top: -45px;
+		right: 0;
+		color: #e60012;
+		p {
+			margin-bottom: 0px;
+			font-size: $fz-N;
+		}
+	}
 }
-.AccordionPanelTab {
-	color: #8e4429;
-	font: 15px/21px $normal_font;
-	letter-spacing: 1px;
+.point_class_tb,
+.history_cnt table,
+.news_tb {
+	width: 100%;
+	border: 1px solid #3E3A39;
+	tr {
+		border-bottom: 1px solid #3E3A39;
+	}
+	th {
+		@include bg(#727171);
+		color: #fff;
+		text-align: left;
+		border-left: 1px solid #3E3A39;
+		&:first-of-type {
+			border-left: 0;
+		}
+	}
+	td {
+		border-left: 1px solid #3E3A39;
+		&:first-of-type {
+			border-left: 0;
+		}
+	}
+	a {
+		color: #222;
+		&:hover {
+			color: #0059AA;
+		}
+	}
 }
-.orange {
-	color: #ea5404;
+.history {
+	cursor: pointer;
 }
-.txt6 {
-	text-decoration: underline;
+.history_cnt {
+	.title {
+		margin-bottom: 20px;
+	}
+}
+.level_block {
+	width: 50%;
+	// padding-left: 10%;
+}
+.level {
+	@include circle(20px);
+	margin-left: 15%;
+	&.red {
+		@include bg(#C30D23);
+		@include opacity(0.3);
+	}
+	&.yellow {
+		@include bg(#F7B52C);
+		@include opacity(0.3);
+	}
+	&.green {
+		@include bg(#8DC21F);
+		@include opacity(0.3);
+	}
+	&.on {
+		@include opacity(1);
+	}
+}
+.pointClass3_btn {
+	position: absolute;
+	top: -90px;
+	left: 310px;
+}
+.txt1 {
+	vertical-align: top;
+	color: #E50012;
+	line-height: 27px;
+}
+
+
+
+
+
+
+.orgSearch {
+	input.o {
+		width: 50%;
+	}
+	li {
+		position: relative;
+	}
+	.btn {
+
+		position: absolute;
+		top: 0px;
+		right: 80px;
+		input {
+			padding: 0 13px;
+		}
+	}
+}
+
+.tourist_article {
+	width: 100%;
+	margin: 0 auto;
+}
+div[class*="tourist_list"] {
+	width: 195px;
+	float: left;
+	margin-left: 20px;
+	figure {
+		width: 100%;
+		height: 275px;
+		background-color: #fff;
+		border: 1px solid #dadada;
+		margin: 0 5px 5px 0;
+		&:hover {
+			@include box-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+			@include translate(-1px, -1px);
+		}
+	}
+	figcaption {
+		width: 100%;
+		height: 129px;
+		padding: 10px;
+		position: relative;
+	}
+	&>a {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+	h2, p {
+		margin-bottom: 5px;
+	}
+	h2 {
+		width: 100%;
+		height: 32px;
+		overflow: hidden;
+		color: #454545;
+		font-size: $fz-N;
+		font-weight: bolder;
+	}
+	p {
+		color: #626262;
+		font-size: $fz-N;
+		word-break: break-all;
+		&:nth-of-type(2) {
+			position: absolute;
+			top: 100px;
+		}
+	}
+	a.tourist_btn1, a.tourist_btn2 {
+		height: 34px;
+		color: #606060;
+		border: 1px solid #dadada;
+		font-size: 13px;
+		font-weight: bolder;
+		line-height: 34px;
+		text-align: center;
+		display: inline-block;
+		vertical-align: top;
+		&:hover {
+			@include box-shadow(1px 1px 3px rgba(0, 0, 0, 0.3));
+			@include translate(-1px, -1px);
+		}
+	}
+	a.tourist_btn1 {
+		width: 38%;
+		margin-right: 2px;
+		@include background-image(linear-gradient(#fff, #ededed, #fff));
+	}
+	a.tourist_btn2 {
+		width: 58%;
+		@include background-image(linear-gradient(#fde638, #f5ee79  49%, #f0e72c 50%, #fedc2a));
+	}
+}
+.tourist_price {
+	font-family: $normal_font2;
+	color: #57c0ee;
+	font-size: 22px;
+	font-weight: bolder;
+	padding: 0 5px;
+}
+.figure_img_block {
+	width: 98%;
+	height: 146px;
+	margin: 0 auto;
+	img {
+		margin: 0 auto;
+		display: block;
+	}
+}
+.btn.marquee_btn {
+	background-color: transparent;
 }
 
 
