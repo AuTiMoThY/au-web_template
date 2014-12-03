@@ -24,6 +24,7 @@ fonts_dir = "css/fonts"
 color_output = true
 tab_size = 4
 translate_tabs_to_spaces = false
+# sourcemap = true
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:

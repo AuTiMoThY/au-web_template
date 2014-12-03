@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$cnt_width: 960px;
+$cnt_width: 1000px;
 
 $index_youtube_w: 285px;
 $index_youtube_h: 180px;
@@ -15,15 +15,31 @@ $header_h: 73px;
 //------------------------------------*\
 //		color
 //------------------------------------*/
-$normal_color: #794916;
-$normal_color2: #a7dcd7;
+$normal_color: #51a506;
+$normal_color2: #5d615e;
+
+$logo_color1: #6EB92B;
+$logo_color2: #5C605D;
 
 $hover_color: #bc0021;
-$footer_color: #c6c6c6;
+$footer_color: #585858;
 
-$DF_color: #595757;
+$Grey_color1: #595757;
+
+$Grey_color2: #747474;
+
+$Grey_color3: #6b6b6b;
+$Grey_color4: #9b9b9b;
+$Grey_color5: #dddddd;
+$Grey_color6: #b6b6b6;
+
+
+
+
 $bg_color: #fafafa;
 
+$color1: #6b6b6b;
+$DF_color2: #747474;
 //------------------------------------*\
 //		font
 //------------------------------------*/
@@ -31,6 +47,7 @@ $normal_font: "Microsoft JhengHei", "微軟正黑體", Arial, "Helvetica Neue", 
 $normal_font2: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $ff-CenturyGothic: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 $ff-Verdana: Verdana, "Geneva", sans-serif;
+$ff-Helvetica:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 $fz-XL: 19px;
 $fz-LL: 17px;
@@ -38,6 +55,14 @@ $fz-L: 15px;
 $fz-N: 13px;
 $fz-S: 11px;
 $fz-SS: 9px;
+
+//------------------------------------*\
+//		font
+//------------------------------------*/
+$easing1: cubic-bezier(0.4, 0, 0.2, 1);
+$easing2: cubic-bezier(0.7, 0, 0.3, 1);
+$easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+
 
 
 //------------------------------------*\

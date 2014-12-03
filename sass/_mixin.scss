@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.6
+//		V 3.8
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -75,18 +75,70 @@
 }
 @mixin ib {
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle !important;
   padding:0;
   background-image:none
 }
+@mixin col {
+  display: inline-block;
+  vertical-align: top;
+}
+@mixin col-2 {
+  @include col;
+  width: 49%;
+}
+@mixin col-3 {
+  @include col;
+  width: 32%;
+}
+@mixin col-4 {
+  @include col;
+  width: 24%;
+}
 @mixin atRoot() {
-	@at-root { @content; }/*at-root*/
+	@at-root { @content; }
 }
 @mixin ul() {
 	margin-bottom: 1.25em;
 	list-style-position: outside;
 	font-size: 1em;
 	line-height: 1.6;
+}
+@mixin triPrev($color, $w, $w2:(($w * 2) - 3px)) {
+	border: {
+		style: solid;
+		width: $w $w2 $w 0;
+		color: transparent $color transparent transparent;
+	}
+}
+@mixin triNext($color, $w, $w2:(($w * 2) - 3px)) {
+	border: {
+		style: solid;
+		width: $w 0 $w $w2;
+		color: transparent transparent transparent $color;
+	}
+}
+@mixin triBtm($color, $w, $w2:(($w * 2) - 3px)) {
+	border: {
+		style: solid;
+		width: $w2 $w 0 $w;
+		color: $color transparent transparent transparent;
+	}
+}
+@mixin triTop($color, $w, $w2:(($w * 2) - 3px)) {
+	border: {
+		style: solid;
+		width: 0 $w $w2 $w;
+		color: transparent transparent $color transparent;
+	}
+}
+
+@mixin specBorder() {
+	@include bg(#f4f4f4);
+	border: 2px solid #bec2c5;
+	@include box-shadow(inset 3px 3px 0 rgba(0, 0, 0, 0.06));
+	padding: 4px 0;
+	color: #303030;
 }
 
 
@@ -115,15 +167,15 @@
 
 
 
-@mixin respond-to($foot) {
-  @if $foot == paper_foot_04 {
-    @media only screen and (max-width: $paper_foot_04_w) { @content; }
+@mixin respond-to($screenWidth) {
+  @if $screenWidth == L-screen {
+    @media only screen and (max-width: 1920px) { @content; }
   }
-  @else if $foot == paper_foot_03 {
-    @media only screen and (max-width: $paper_foot_03_w) { @content; }
+  @else if $screenWidth == M-screen {
+    @media only screen and (max-width: 1024px) { @content; }
   }
-  @else if $foot == paper_foot_02 {
-    @media only screen and (max-width: $paper_foot_02_w) { @content; }
+  @else if $screenWidth == S-screen {
+    @media only screen and (max-width: 320px) { @content; }
   }
 }
 
