@@ -12,12 +12,12 @@
 
 <link rel="stylesheet" href="css/reset.css" />
 <link rel="stylesheet" href="css/ripples.css">
-<!-- <link href="css/material-wfont.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="css/material-wfont.css">
+<link rel="stylesheet" href="css/font-awesome.css">
 <!-- <link rel="stylesheet" href="asset/FlexSlider/flexslider.css" /> -->
 <!-- <link rel="stylesheet" href="asset/fancybox/jquery.fancybox.css" /> -->
 <link rel="stylesheet" href="css/foundation.css" />
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/effect2.css" />
+<!-- <link rel="stylesheet" href="css/effect2.css" /> -->
 <link rel="stylesheet" href="css/style.css" />
 
 <script src="js/libs/modernizr-2.7.1.dev.js"></script>
