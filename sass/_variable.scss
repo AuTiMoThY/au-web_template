@@ -56,8 +56,13 @@ $fz-N: 13px;
 $fz-S: 11px;
 $fz-SS: 9px;
 
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+
+
 //------------------------------------*\
-//		font
+//		easing
 //------------------------------------*/
 $easing1: cubic-bezier(0.4, 0, 0.2, 1);
 $easing2: cubic-bezier(0.7, 0, 0.3, 1);

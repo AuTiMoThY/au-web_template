@@ -367,6 +367,14 @@ p {
 }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+.cf:before, .cf:after {
+	content: "";
+	display: table;
+	height: 0;
+	overflow: hidden;
+}
+.cf:after { clear: both; }
+.cf { zoom: 1; }
 
 
 
