@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.8
+//		V 3.8.1
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -48,10 +48,7 @@
 @mixin VerticalAlign() {
 	position: relative;
 	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	-o-transform: translateY(-50%);
-	transform: translateY(-50%);
+	@include translateY(-50%);
 }
 @mixin psudoClass() {
 	content: '';
@@ -169,13 +166,13 @@
 
 @mixin respond-to($screenWidth) {
   @if $screenWidth == L-screen {
-    @media only screen and (max-width: 1920px) { @content; }
+    @media screen and (max-width: 1920px) { @content; }
   }
   @else if $screenWidth == M-screen {
-    @media only screen and (max-width: 1024px) { @content; }
+    @media screen and (max-width: 1024px) { @content; }
   }
   @else if $screenWidth == S-screen {
-    @media only screen and (max-width: 320px) { @content; }
+    @media screen and (max-width: 320px) { @content; }
   }
 }
 

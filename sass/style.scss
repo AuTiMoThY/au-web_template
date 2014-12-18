@@ -1,34 +1,27 @@
 @charset "UTF-8";
 
 /******************************************/
-/*          ada
-/*			by AuTiMoThY
+/*		IPC
+/*			by DFocus AuTiMoThY
 /******************************************/
 /*
 * TOC
 * 
 * btn
 * form input textarea
-* headerWrap
-* main
-* banner
-* aside
-* aside nav
-* content
-* creatDealer
-* point
+* loading
 */
 
 @import "_variable";
 @import "_mixin";
-@import "_font.scss";
+// @import "_font.scss";
 @import "compass";
 @import "ceaser-easing";
 
 @include establish-baseline;
 
 
-// @include font-face("expressway", font-files("expressway rg.ttf", "expressway rg.woff"));
+@include font-face("HelveticaNeueLTCom", font-files("HelveticaNeueLTCom-Th.ttf", "HelveticaNeueLTCom-Th.woff"));
 
 // @import _animate.sass
 /*------------------------------------------------------------------------*\
@@ -36,52 +29,7 @@
 /*------------------------------------------------------------------------*\
 		
 \*------------------------------------------------------------------------*/
-.hide_txt {
-    @include hide_txt;
-}
-
-.wrapper {
-    @include wh($cnt_width, 100%);
-    margin: 0 auto;
-    position: relative;
-}
-.well {
-	width: $cnt_width;
-	margin: auto;
-	position: relative;
-}
-
-html, body {
-    min-height: 100%;
-}
-
-body {
-    @include bg('bg.jpg');
-    @include background-size(cover);
-    @include bg(scroll);
-	font-family: $normal_font;
-}
-
-
-.pic {
-    img {
-        @include picImg;
-    }
-}
-
-.swing {
-    -webkit-transform-origin: 50% 80%;
-    -ms-transform-origin: 50% 80%;
-    transform-origin: 50% 80%;
-}
-
-.temporary {
-    display: block;
-    margin: 0 auto;
-}
-.ib {
-	@include ib;
-}
+@import "_Initial";
 
 /*------------------------------------------------------------------------*\
 /*------------------------------------------------------------------------*\
@@ -92,6 +40,19 @@ body {
 .btn {
 	@include bg(#727171);
 	// @include transition(all 0.3s ease-in-out);
+	position: relative;
+	// padding: 8px 30px;
+	border: 0;
+	// margin: 10px 1px;
+	cursor: pointer;
+	border-radius: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgba(255, 255, 255, .84);
+	// -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	// transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+	outline: 0!important;
 	display: table;
 	a, input {
 		padding: 6px 13px;
@@ -127,22 +88,8 @@ body {
 .submit_btn {
 	margin-right: 10px;
 }
-.btn {
-    position: relative;
-    /*padding: 8px 30px;*/
-    border: 0;
-    /*margin: 10px 1px;*/
-    cursor: pointer;
-    border-radius: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: rgba(255, 255, 255, .84);
-    // -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
-    // transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
-    @include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
-    outline: 0!important
-}
-@import "_materialBtn";
+
+// @import "_materialBtn";
 /*------------------------------------------------------------------------*\
 /*------------------------------------------------------------------------*\
 /*========================================================================*\
@@ -206,3 +153,9 @@ form select {
 // }
 
 
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	
+\*========================================================================*/
