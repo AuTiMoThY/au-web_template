@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$cnt_width: 1000px;
+$cnt_width: 1024px;
 
 $index_youtube_w: 285px;
 $index_youtube_h: 180px;
@@ -15,14 +15,26 @@ $header_h: 73px;
 //------------------------------------*\
 //		color
 //------------------------------------*/
-$normal_color: #51a506;
+//project
+$normal_color: #0068b7;
 $normal_color2: #5d615e;
 
 $logo_color1: #6EB92B;
 $logo_color2: #5C605D;
 
+
+$bd_color: #898989;
+$bd_color1: lighten($bd_color, 15.5%);//#b1b1b1
+$bd_color2: lighten($bd_color, 20%);//#bcbcbc
+$bd_color3: lighten($bd_color, 25%);//#c9c9c9
+
+
+
+
+
 $hover_color: #bc0021;
 $footer_color: #585858;
+
 
 $Grey_color1: #595757;
 
@@ -38,12 +50,11 @@ $Grey_color6: #b6b6b6;
 
 $bg_color: #fafafa;
 
-$color1: #6b6b6b;
 $DF_color2: #747474;
 //------------------------------------*\
 //		font
 //------------------------------------*/
-$normal_font: "Microsoft JhengHei", "微軟正黑體", Arial, "Helvetica Neue", Helvetica;
+$normal_font: "Microsoft JhengHei", "微軟正黑體", \5FAE\x8F6F\6B63\9ED1\4F53, Arial, "Helvetica Neue", Helvetica;
 $normal_font2: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $ff-CenturyGothic: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 $ff-Verdana: Verdana, "Geneva", sans-serif;

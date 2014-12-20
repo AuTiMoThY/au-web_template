@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.8.1
+//		V 3.8.2
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -30,6 +30,9 @@
 	} @else {
 		background: image-url(#{$name}) $bgpx $bgpy $repeat;
 	}
+}
+@mixin bg-iconTxt($x:0, $y:0) {
+	@include bg('iconTxt.png', $x, $y);
 }
 @mixin hide_txt() {
 	text-indent: 110%;
@@ -63,7 +66,7 @@
 @mixin circle($width, $height:$width) {
 	width: $width;
 	height: $height;
-	@include border-radius($width / 2);
+	border-radius: 50%;
 }
 @mixin picImg() {
 	height: auto;
@@ -90,7 +93,7 @@
 }
 @mixin col-4 {
   @include col;
-  width: 24%;
+  width: 24.9%;
 }
 @mixin atRoot() {
 	@at-root { @content; }

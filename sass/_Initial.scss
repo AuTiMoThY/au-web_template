@@ -27,6 +27,8 @@ body {
 
 
 .pic {
+	width: 100%;
+	overflow: hidden;
 	img {
 		@include picImg;
 	}
@@ -57,4 +59,5 @@ body {
 .col {
 	@include col;
 }
+
 
