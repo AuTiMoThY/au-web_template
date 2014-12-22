@@ -46,7 +46,21 @@ body {
 /* Let's default this puppy out
 -------------------------------------------------------------------------------*/
 
-html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+html, body, body div, span, iframe, h1, h2, h3, h4, h5, h6, p, em, img, small, strong, b, i, article, aside, figure, footer, header, nav, section {
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+dl, dt, dd, ol, ul, li {
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+fieldset, form, label, legend {
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
@@ -54,6 +68,20 @@ html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquot
 	background: transparent;
 }
 
+table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+object, blockquote, ins, kbd, q, samp, sub, sup, var, pre, abbr, address, cite, code, del, dfn, menu, time, mark, audio, video, details, summary {
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
 /* force a vertical scrollbar to prevent a jumpy page */
 html {overflow-y: scroll;}
 
@@ -353,7 +381,7 @@ p {
 	font-weight:normal;
 	font-size:1em;
 	line-height:1.6;
-	margin-bottom:1.25em;
+	/*margin-bottom:1.25em;*/
 	text-rendering:optimizeLegibility;
 }
 
