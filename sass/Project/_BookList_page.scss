@@ -1,0 +1,50 @@
+.layout {
+	&-toggle {
+		&-picker {
+			line-height: 21px;
+			text-align: right;
+			span {
+				@include wh(21px);
+				text-align: center;
+				@include bg(#8c8c8c);
+				color: #fff;
+				font-size: 14px;
+				line-height: 21px;
+				cursor: pointer;
+				&:hover, &.active {
+					@include bg(#f39800);
+				}
+			}
+		}
+		&-list {
+			width: auto;
+		}
+		&-image {
+			width: auto;
+		}
+	}
+}
+
+
+.cntMod-book_list {
+	&-item {
+		&.layout-list {
+			width: 100%;
+			.row-1, figcaption {
+				@include col;
+			}
+			.row-1 {
+				width: 20%;
+				position: static;
+			}
+			figcaption {
+				width: 79%;
+			}
+			.cntMod-book_list-item-hover {
+				position: static;
+				display: block;
+				opacity: 1;
+			}
+		}
+	}
+}

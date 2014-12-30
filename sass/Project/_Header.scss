@@ -1,0 +1,184 @@
+#top {
+	@include wh(100%, 10px);
+	@include bg(#000);
+}
+header {
+	&.global_hd {
+		@include wh(100%, 90px);
+		@include background-image(linear-gradient(#00a1e9, #0086d1));
+		nav {
+			margin-left: 35%;
+			margin-right: 1%;
+		}
+	}// header.global_hd  END
+	&.quick_bar {
+		@include wh(100%, 45px - 1px);
+		@include bg(#dcdddd);
+		&:after {
+			@include psudoClass;
+			@include wh(100%, 1px);
+			@include bg(darken(#dcdddd, 20%));
+		}
+	}// header.quick_bar  END
+	&#logo {
+		@include wh(logo, png);
+		position: absolute;
+		top: 0;
+		// right: 0;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		a {
+			@include wh;
+			display: block;
+		}
+	}// header#logo  END
+}
+/*========================================================================*\
+		>>	main_nav
+\*========================================================================*/
+.main_nav {
+	height: 100%;
+	// position: relative;
+	ul {
+		height: 100%;
+	}
+	&-item {
+		@include VerticalAlign;
+
+		a, span {
+			display: block;
+			text-align: center;
+		}
+		@each $navItem, $x, $y in (item1, 0, -51px),
+									   (item2, -79px, -51px),
+									   (item3, -155px, -51px),
+									   (item4, -243px, -51px),
+									   (item5, -358px, -51px),
+									   (item6, -485px, -51px) {
+			&.#{$navItem}:hover .main_nav-icon {
+				@include bg('navIcon.png', $x, $y);
+			}
+		}
+	}// .main_nav-item  END
+	&-icon {
+		height: 31px;
+		margin-bottom: 0.5em;
+		// @include transition(all 0.3s $easeInOutCubic);
+		@each $navItem, $w, $x, $y in (item1, 34px, 0, 0),
+									  (item2, 37px, -79px, 0),
+									  (item3, 43px, -155px, 0),
+									  (item4, 69px, -243px, 0),
+									  (item5, 78px, -358px, 0),
+									  (item6, 53px, -485px, 0) {
+			.#{$navItem} & {
+				width: #{$w};
+				@include bg('navIcon.png', $x, $y);
+			}
+		}
+	}// .main_nav-icon  END
+}
+/*========================================================================*\
+		>>	quick_login
+\*========================================================================*/
+.quick_login {
+	.login_btn {
+		@include bg(lighten(#000, 23%));
+		color: #fff;
+		@include adjust-font-size-to(13px);
+		padding: 0.3em 0.8em;
+		margin-bottom: 3px;
+		border-radius: 14px;
+		display: block;
+		text-align: center;
+		&:hover {
+			box-shadow: 1px 1px 3px #333;
+			@include hover;
+		}
+	}
+	.fb_btn {
+		color: #fff;
+		@include adjust-font-size-to(13px);
+		display: block;
+		.icon {
+			@include wh(60px, 12px);
+			@include bg('fbLogo.png');
+			background-size: cover;
+			display: inline-block;
+		}
+		&:hover {
+			@include hover;
+		}
+	}
+}
+/*========================================================================*\
+		>>	quick_bar
+\*========================================================================*/
+.quick_bar {
+
+}
+.social {
+	height: 100%;
+	padding: 4px 0;
+	li{
+		height: 100%;
+		@include transition(all 0.3s $easeInOutCubic);
+		&:hover {
+			@include bg(darken(#dcdddd, 5%));
+		}
+	}
+	&-icon {
+		$padding: 15px;
+		@include wh(27px + ( $padding * 2 ), 35px);
+		@include bg-iconTxt;
+		padding: 0 $padding;
+		border-left: 1px solid #fcfcfc;
+		border-right: 1px solid #aaa;
+		display: block;
+		@each $icon, $x, $y in (icon1, -473px + $padding, -110px),
+							   (icon2, -473px + $padding, -55px),
+							   (icon3, -473px + $padding, 0px) {
+			&.#{$icon} {
+				@include bg($x, $y);
+			}
+		}
+	}
+	.line_r {
+		border-right: 1px solid #aaa;
+	}
+	.line_l {
+		border-left: 1px solid #fcfcfc;
+	}
+}
+.fb-like.fb-like {
+	margin: 0 1em;
+	@include VerticalAlign;
+	position: absolute;
+	left: 18%;
+}
+
+.search_block {
+	width: 59%;
+	margin-left: 20%;
+}
+.search_form {
+		width: 100%;
+	&-inp {
+		width: 80%;
+		input {
+			border-radius: 5px;
+			border: none !important;
+		}
+	}
+	&-btn {
+		width: 19%;
+		input {
+			@include wh(100%, 30px);
+			@include bg-iconTxt(-385px, -250px + 6px);
+			border: none;
+		}
+		&:hover {
+			@include hover;
+		}
+	}
+}

@@ -1,0 +1,435 @@
+@charset "UTF-8";
+
+.mod {
+	padding: 0 0.5em;
+	.icon {
+		height: 35px;
+		@include bg('iconTxt.png');
+		display: inline-block;
+		position: relative;
+		top: 5px;
+	}
+	h1 {
+		width: 100%;
+		position: relative;
+		@include padding-trailer(0.5);
+		span {
+			height: 35px;
+		}
+	}
+	.title1 {
+		color: $normal_color;
+		font-size: 2em;
+		line-height: 35px;
+		font-family: $normal_font;
+	}
+	.title2 {
+		color: $Grey_color6;
+		font-size: 1.5em;
+		font-family: HelveticaNeueLTCom;
+		font-weight: normal;
+		text-transform: uppercase;
+		letter-spacing: 0;
+	}
+	&-page_title {
+		position: relative;
+		h1 {
+			@include rhythm(0.5, 0.3);
+			border-bottom: 1px solid $Grey_color5;
+		}
+		span.path {
+			position: absolute;
+			bottom: 20px;
+			right: 10px;
+			color: darken($Grey_color6, 10%);
+			@include adjust-font-size-to(13px);
+			a {
+				color: darken($Grey_color6, 10%);
+				&:hover {
+					color: $normal_color3;
+				}
+			}
+			.active {
+				color: $normal_color3;
+				text-decoration: underline;
+			}
+		}
+		.title2 {
+			font-size: 1.8em;
+		}
+	}
+
+	@include atRoot{
+/*========================================================================*\
+		>>	mod  icon
+\*========================================================================*/
+		.icon {
+			@each $modBlock, $w, $x, $y in
+				(most_popular, 41px, 0, 0),
+				(IPC_choice, 33px, -61px, 0),
+				(spec_promotion, 28px, -114px, 0),
+				(news_edm, 74px, 0, -55px),
+				(news_lessons, 48px, -162px, 0),
+				(economics_views, 75px, -94px, -55px),
+				(bookShop_page_title, 43px, -222px, 0px),
+				(wonder_preview, 38px, -275px, 0),
+				(tab_cnt, 22px, -334px, 0) {
+				.mod-#{$modBlock} & {
+					width: $w;
+					@include bg($x, $y);
+				}
+			}
+		}
+	};
+	@include atRoot {
+/*========================================================================*\
+		>>	mod-most_popular  熱門排行
+\*========================================================================*/
+	&-most_popular {
+		h1 {
+			border-bottom: 1px solid #e3e2e2;
+			position: relative;
+			.icon {
+				margin-left: 5%;
+			}
+			&:after {
+				@include psudoClass;
+				@include wh(100%, 3px);
+				@include bg(lighten(#e3e2e2, 5%));
+				position: absolute;
+				bottom: -4px;
+			}
+		}
+		&-block {
+			height: 300px;
+			padding: 0 5%;
+			position: relative;
+			.marquee {
+				@include wh;
+				position: relative;
+				overflow: hidden;
+				ul {
+					display: block;
+					position: absolute;
+				}
+			}
+			.marquee-control {
+				width: 100%;
+				position: absolute;
+				top: 40%;
+				left: 0;
+				&-btn {
+					li {
+						@include circle(44px, 40px);
+						position: absolute;
+						overflow: hidden;
+						float: none;
+						&:first-of-type {
+							left: 0;
+						}
+						&:nth-of-type(2) {
+							right: 0;
+						}
+					}
+				}
+			}
+			.marquee_btn {
+				@include wh(50%, 100%);
+				@include bg($normal_color);
+				position: absolute;
+				top: 0;
+				line-height: 40px;
+				cursor: pointer;
+				&.prev_btn {
+					left: 0;
+				}
+				&.next_btn {
+					right: 0;
+				}
+			}
+		}
+		&-list {
+
+		}
+		&-item {
+			width: 180px;
+			// margin: 0 4px;
+			height: 275px;
+			padding: 1em 1.3em 0;
+			position: relative;
+			a {
+				display: block;
+			}
+			figure {
+				@include wh;
+			}
+			.number {
+				@include wh(30px);
+				position: absolute;
+				top: 3%;
+				left: 2%;
+			}
+			@for $i from 1 through 10 {
+				&:nth-of-type(#{$i}) {
+					.number {
+						@include bg('No#{$i}.svg');
+					}
+				}
+			}
+			.book-name {
+				height: 32px;
+				overflow: hidden;
+			}
+		}
+	}
+	};//mod-most_popular  atRoot
+	@include atRoot {
+/*========================================================================*\
+		>>	mod-IPC_choice  寰宇嚴選
+\*========================================================================*/
+	&-IPC_choice {
+		&-block {
+			border: 1px solid lighten($bd_color, 15.5%);
+		}
+		figure, .pic {
+			width: 100%;
+		}
+		figcaption {
+			text-align: center;
+			@include rhythm-padding(0.3);
+			border-top: 1px solid lighten($bd_color, 15.5%);
+		}
+	}
+	};//mod-IPC_choice  atRoot
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-spec_promotion  特別推薦
+\*========================================================================*/
+	$menuH : 50px;
+	$menuColorH: 10px;
+	$showboxH: 300px;
+	&-spec_promotion {
+		&-block {
+			height: $showboxH + $menuH;
+			.showbox {
+				top: $menuH;
+				a {
+					@include wh(100%, $showboxH);
+				}
+			}
+			.menu {
+				@include wh(100%, $menuH);
+				li {
+					@include wh(20%, $menuH);
+					border-left: 1px solid #fff;
+					position: relative;
+					&:first-of-type {
+						border-left: none;
+					}
+					@each $var, $color in (1, $normal_color),
+										  (2, #f39800),
+										  (3, #6fba2c),
+										  (4, #da341d),
+										  (5, #ee87b4) {
+						&:nth-of-type(#{$var}) {
+							&:before {
+								@include psudoClass;
+								@include wh(100%, $menuColorH);
+								@include bg($color);
+								position: absolute;
+								top: 0;
+							}
+						}
+					}
+				}
+				a {
+					@include wh;
+					display: block;
+					padding: $menuColorH 0.5em 0;
+					color: #000;
+					@include adjust-font-size-to(13px, 1.5);
+					text-align: center;
+					@include ellipsis;
+					&.selected {
+						@include bg(darken(#fff, 10%));
+						font-weight: bolder;
+					}
+				}
+			}
+		}
+	}
+	};//mod-spec_promotion  atRoot
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-news_edm  最新快報
+\*========================================================================*/
+		&-news_edm {
+			&-block {
+				// width: 100%;
+			}
+		}
+	};
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-news_lessons  mod-economics_views  common
+\*========================================================================*/
+	%modIndexCommon {
+
+	}
+	&-news_lessons, &-economics_views {
+		&-block {
+			// width: 100%;
+			border: 1px solid $bd_color;
+			border-radius: 10px;
+			@include rhythm-padding(1.5);
+			overflow: hidden;
+			position: relative;
+		}
+		&-ctrl, &-ctrl ul, &-ctrl li {
+			width: 100%;
+		}
+		&-ctrl {
+			li {
+				height: 1.5em;
+				line-height: 1.5;
+				@include bg($Grey_color5);
+				position: absolute;
+				color: #fff;
+				text-align: center;
+				i {
+					@include scale(2,1);
+				}
+				&.prev_btn {
+					top: 0;
+				}
+				&.next_btn {
+					bottom: 0;
+				}
+			}
+		}
+		&-container, &-container ul, &-container li {
+			width: 100%;
+		}
+		&-container {
+			// padding: 0 1em;
+			&>ul>li {
+				float: none;
+				@include rhythm-padding(0.1);
+				&:nth-of-type(even) {
+					@include bg(#efefef);
+				}
+			}
+		}
+	}
+	};
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-news_lessons  最新課程
+\*========================================================================*/
+	&-news_lessons {
+		&-block {
+			// width: 100%;
+		}
+		&-ctrl {
+			li {
+				// height: 1.5em;
+				// line-height: 1.5;
+				// @include bg($Grey_color5);
+				// position: absolute;
+				// color: #fff;
+				// text-align: center;
+				i {
+					// @include scale(2,1);
+				}
+				&.prev_btn {
+					// top: 0;
+				}
+				&.next_btn {
+					// bottom: 0;
+				}
+			}
+		}
+		&-container {
+			// padding: 0 1em;
+			&>ul>li {
+				// float: none;
+				// @include rhythm-padding(0.1);
+				&:nth-of-type(even) {
+					// @include bg(#efefef);
+				}
+			}
+		}
+		&-banner {
+			padding: 0 1em;
+			.pic {
+				border: 1px solid lighten($bd_color, 20%);
+			}
+			// @include margin-trailer(0.4);
+		}
+		&-art {
+			padding: 0 1em;
+			.lesson-name {
+				width: 86%;
+				@include ellipsis;
+				&~span {
+					@include adjust-leading-to(0.9);
+				}
+			}
+			.more a {
+				color: $normal_color;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+			.row-1 {
+				border-bottom: 1px solid lighten($bd_color, 25%);
+				@include rhythm-padding(0.3);
+				@include margin-trailer(0.4);
+			}
+		}
+	}//.mod-news_lessons
+	};//.mod-news_lessons  atRoot
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-economics_views  財金觀點
+\*========================================================================*/
+	&-economics_views {
+		&-block {
+			// width: 100%;
+		}
+	}
+	};//.mod-economics_views  atRoot
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-wonder_preview  精彩試閱
+\*========================================================================*/
+	&-wonder_preview {
+		h1 {
+
+		}
+		&-block {
+			height: 620px;
+			// width: 100%;
+			border: 3px solid #e3e2e2;
+			padding: 1em;
+			overflow-y: scroll;
+		}
+	}
+	};//.mod-wonder_preview  atRoot
+
+	@include atRoot{
+/*========================================================================*\
+		>>	mod-tab_cnt
+\*========================================================================*/
+	&-tab_cnt {
+		h1 {
+
+		}
+		&-block {
+
+		}
+	}
+	};//.mod-tab_cnt  atRoot
+}//.mod
+
+

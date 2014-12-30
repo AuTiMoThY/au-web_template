@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+.cntModBd {
+	border: 1px solid $Grey_color7;
+	* {
+		width: 100%;
+	}
+	&-header {
+		height: 40px;
+		position: relative;
+		padding-left: 2%;
+		margin-top: 0;
+		&:before {
+			@include psudoClass;
+			@include wh;
+			@include bg('line2.png', 0, 0, repeat);
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		@each $var, $startColor, $endColor in
+		(book_basicInf, #f39600, #f07200),
+		(book_add, #ea0000, #bd0000) {
+			.cntModBd-#{$var} & {
+				@include background-image(linear-gradient($startColor, $endColor));
+			}
+		}
+		span {
+			height: 25px;
+		}
+
+		@include atRoot{
+/*========================================================================*\
+		>>	cntModBd-header icon title1
+\*========================================================================*/
+		$cntModBd-headerH: 25px;
+		& .icon, & .title1 {
+			height: $cntModBd-headerH;
+			@include VerticalAlign;
+		}
+		& .title1 {
+
+		}
+		@each $var, $w, $x, $y, $titleW, $titleX, $titleY in
+		(book_basicInf, 20px, -385px, -288px, 122px, -108px, -162px),
+		(book_add, 30px, -447px, -288px, 81px, 0, -79px) {
+			.cntModBd-#{$var} & {
+				.icon {
+					width: $w;
+					@include bg('iconTxt.png', $x, $y);
+				}
+				.title1 {
+					width: $titleW;
+					@include bg('txts.png', $titleX, $titleY);
+				}
+			}
+		}
+		}//.cntModBd-header icon  atRoot
+	}//.cntModBd-header
+	&-block {
+		padding: 1em;
+	}//.cntModBd-block
+
+	@include atRoot{
+/*========================================================================*\
+		>>	cntModBd-book_basicInf
+\*========================================================================*/
+	&-book_basicInf {
+		&-block {
+			li {
+				float: none;
+				@include adjust-font-size-to(15px);
+			}
+			a {
+				color: $normal_color3;
+				text-decoration: underline;
+				&:hover {
+					color: darken($normal_color3, 10%);
+				}
+			}
+		}//.cntModBd-book_basicInf-block
+	}//.cntModBd-book_basicInf
+	}//.cntModBd-book_basicInf  atRoot
+
+	@include atRoot{
+/*========================================================================*\
+		>>	cntModBd-book_add
+\*========================================================================*/
+	&-book_add {
+		&-block {
+			li {
+				float: none;
+				@include adjust-font-size-to(15px);
+			}
+			a {
+				color: $normal_color3;
+				text-decoration: underline;
+				&:hover {
+					color: darken($normal_color3, 10%);
+				}
+			}
+		}//.cntModBd-book_add-block
+	}//.cntModBd-book_add
+	}//.cntModBd-book_add  atRoot
+
+
+
+}

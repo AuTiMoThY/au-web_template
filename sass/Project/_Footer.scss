@@ -1,0 +1,144 @@
+footer {
+	width: 100%;
+	&.global_ft {
+		min-height: 145px;
+		@include background-image(linear-gradient(#008ad8, #0066ba));
+		@include padding-leader(0.8);
+		position: relative;
+		&:before {
+			@include psudoClass;
+			@include wh(100%, 2px);
+			@include background-image(linear-gradient(#919191, #898989));
+			position: absolute;
+			top: -2px;
+		}
+		section {
+			&.col {
+				
+			}
+		}
+	}
+	&.copyright {
+		@include background-image(linear-gradient(#0c141c, #424a54));
+		p, a {
+			color: $bd_color;
+			@include adjust-font-size-to(13px, 1.3);
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.affiliate {
+	p {
+		@include wh(100%, 8px);
+		@include bg('txts.png', 0, -250px);
+		margin-bottom: 0.5em;
+	}
+}
+
+.epaper {
+	&-block {
+		margin-bottom: 0.5em;
+		p {
+			@include wh(100%, 17px);
+			@include bg('txts.png', 0, -268px);
+			margin-bottom: 0.5em;
+			position: relative;
+		}
+		form {
+			position: relative;
+		}
+	}
+	input.epaper-inp {
+		border-radius: 10px;
+		border: none;
+	}
+	.btn {
+		position: absolute;
+		top: 3px;
+		right: 3px;
+		input {
+			@include wh(110px, 25px);
+			padding: 0;
+		}
+	}
+}
+
+
+/*========================================================================*\
+		>>	footer_nav
+\*========================================================================*/
+.footer_nav {
+	&-item {
+		@each $navItem, $x, $y in (item1, 0, -338px),
+								  (item2, -29px, -338px),
+								  (item3, -61px, -338px),
+								  (item4, -100px, -338px),
+								  (item5, -162px, -338px),
+								  (item6, -222px, -338px) {
+			&.#{$navItem}:hover .footer_nav-icon {
+				@include bg($x, $y);
+			}
+		}
+		&.nav-IPC a {
+			padding: 0.5em 0.7em;
+			position: relative;
+			line-height: 19px;
+			display: block;
+		}
+	}
+	&-icon {
+		height: 19px;
+		display: inline-block;
+		vertical-align: bottom;
+		@each $navItem, $w, $x, $y in (item1, 19px, 0, -309px),
+									  (item2, 22px, -29px, -309px),
+									  (item3, 28px, -61px, -309px),
+									  (item4, 43px, -100px, -309px),
+									  (item5, 48px, -162px, -309px),
+									  (item6, 19px, -222px, -309px) {
+			.#{$navItem} & {
+				width: #{$w};
+				@include bg('iconTxt.png', $x, $y);
+			}
+		}
+	}
+}
+
+/*========================================================================*\
+		>>	sitemap
+\*========================================================================*/
+.sitemap {
+	nav, &-seg, h2, ul, li {
+		width: 100%;
+	}
+	&-seg {
+		h2 {
+			border-bottom: 1px solid darken($normal_color, 10%);
+			position: relative;
+			@include padding-trailer(0.3);
+			color: #fff;
+			text-align: center;
+			&:after {
+				@include psudoClass;
+				@include wh(100%, 1px);
+				position: absolute;
+				bottom: -2px;
+				@include bg(#268cd2);
+			}
+		}
+		li {
+			float: none;
+			text-align: center;
+			a {
+				color: #fff;
+				@include adjust-font-size-to(13px, 0.8);
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

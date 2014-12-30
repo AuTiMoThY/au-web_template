@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+.bookCnt {
+	&-main {
+		.row-1, .row-2, .row-3, .row-4 {
+			@include margin-trailer(1.3);
+		}
+		.mod-wonder_preview {
+			padding: 0;
+			.icon {
+				@include bg('iconTxt.png', -385px, -110px);
+			}
+			.title1 {
+				color: $normal_color4;
+			}
+		}
+	}
+}
+.book {
+	&-intro {
+		.auw-1 {
+			width: 45%;
+		}
+		.auw-2 {
+			width: 55%;
+			padding-left: 1em;
+		}
+		&-pic {
+			@include wh(360px);
+			border: 1px solid #ddd;
+			margin-bottom: 1em;
+		}//.book-intro-pic
+		&-other {
+			color: #9fa0a0;
+			@include adjust-font-size-to(13px);
+			ul {
+				margin-bottom: 0.5em;
+			}
+			li {
+				height: 20px;
+				margin-right: 15px;
+				&:hover {
+					@include hover;
+				}
+			}
+			&1 {
+				@include wh(80px, 100%);
+				@include bg('iconTxt.png', -265px, -338px);
+			}
+			&2 {
+				@include wh(81px, 100%);
+				@include bg('iconTxt.png', -366px, -338px);
+			}
+			&3 {
+				@include wh(80px, 100%);
+				@include bg('iconTxt.png', -472px, -338px);
+			}
+		}//.book-intro-other
+		hgroup {
+			border-bottom: 1px dashed #ddd;
+		}
+		h1 {
+			margin-bottom: 0;
+		}
+		h2 {
+			@include adjust-font-size-to(15px);
+			letter-spacing: 0;
+		}
+		&-cnt {
+			padding-bottom: 0.8em;
+			margin-bottom: 0.8em;
+			border-bottom: 1px dashed #ddd;
+			@include adjust-font-size-to(13px);
+			li {
+				float: none;
+			}
+			button {
+				border: none;
+				margin: 0;
+			}
+			.btn {
+				display: inline-block;
+				@include bg(transparent);
+				&-addToCart {
+					button {
+						@include wh(167px, 43px);
+						@include bg('iconTxt.png', 0, -368px);
+						padding-left: 0;
+						padding-right: 0;
+					}
+				}
+				$green: #6fba2c;
+				&-addToFavorite {
+					button {
+						@include bg(transparent);
+						height: 43px;
+						line-height: 43px;
+						padding-top: 0;
+						padding-bottom: 0;
+						color: $green;
+						border: 1px solid $green;
+						outline: none;
+						&:hover {
+							@include bg($green);
+							color: #fff;
+						}
+					}
+				}
+			}
+		}//.book-intro-cnt
+	}//.book-intro
+	&-add {
+		@include adjust-font-size-to(13px);
+		position: relative;
+		p {
+			color: #9fa0a0;
+			font-weight: bold;
+		}
+		li {
+			float: none;
+			vertical-align: bottom;
+			padding: 0.5em 0.8em;
+			&:nth-of-type(odd) {
+				@include bg(#ececec);
+			}
+		}
+		.txt-b1 {
+			width: 70%;
+			display: inline-block;
+			@include ellipsis;
+		}
+		&-more {
+			display: block;
+			text-align: right;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}//.book-add
+
+	&-inf {
+	@include atRoot{
+/*========================================================================*\
+		>>	book-inf-tabs
+\*========================================================================*/
+		&-tabs {
+			height: 40px;
+			@include background-image(linear-gradient(#b5185b, #9b0445));
+			position: relative;
+			&:before {
+				@include psudoClass;
+				@include wh;
+				@include bg('line2.png', 0, 0, repeat);
+				position: absolute;
+				top: 0;
+			}
+			li {
+				// @include rhythm-padding(0.3);
+				border-right: 1px solid #fff;
+				margin-top: 7px;
+				&:first-of-type {
+					margin-left: 0.5em;
+				}
+			}
+			a {
+				// display: inline-block;
+				padding: 0 0.8em;
+			}
+		}//.book-inf-tabs
+		$tabsLiH: 19px;
+		&-block {
+			border: 1px solid $Grey_color7;
+			ul.tabs {
+				li {
+					height: $tabsLiH;
+					position: relative;
+					&:hover, &.active {
+						&:after {
+							@include psudoClass;
+							@include wh(105%, 35px);
+							@include bg(#fff);
+							border-radius: 5px;
+							position: absolute;
+							top: -3px;
+							left: -1px;
+							z-index: -1;
+						}
+						a {
+							&:after {
+								@include psudoClass;
+								@include wh(shadow2, png);
+								@include bg('shadow2.png');
+								position: absolute;
+								left: 0;
+								right: 0;
+								margin: auto;
+								bottom: -6px;
+							}
+						}
+					}
+				}
+				a {
+					min-width: 73px;
+					line-height: $tabsLiH;
+					position: relative;
+					display: inline-block;
+				}
+			}
+		}//.book-inf-block
+		&-container {
+			// @include bg(#999);
+			.mod {
+				&-tab_cnt {
+					h1 {
+						border-bottom: 1px solid #e3e2e2;
+						padding-bottom: 0;
+						position: relative;
+						@include margin-trailer;
+						&:after {
+							@include psudoClass;
+							@include wh(100%, 3px);
+							@include bg(lighten(#e3e2e2, 5%));
+							position: absolute;
+							bottom: -4px;
+						}
+					}
+					.icon {
+						height: 24px;
+					}
+					.title1 {
+						@include adjust-font-size-to(23px);
+					}
+					.title2 {
+						font-size: 1.3em;
+					}
+					span {
+						height: 28px;
+					}
+				}
+			}//.book-inf-container  .mod
+		}//.book-inf-container
+	};//.book-inf-tabs  atRoot
+	}//.book-inf
+}
+
+
