@@ -58,58 +58,8 @@
 		>	btn
 \*========================================================================*/
 @import "module/_pageBtn";
-.btn {
-	@include bg(#727171);
-	// @include transition(all 0.3s ease-in-out);
-	position: relative;
-	// padding: 8px 30px;
-	border: 0;
-	// margin: 10px 1px;
-	cursor: pointer;
-	border-radius: 2px;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: rgba(255, 255, 255, .84);
-	// -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
-	// transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
-	@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
-	outline: 0!important;
-	display: table;
-	a, input {
-		padding: 6px 13px;
-		color: #fff;
-		font-size: $fz-L;
-		font-weight: bolder;
-		letter-spacing: 1px;
-	}
-	a {
-		display: table-cell;
-	}
-	input {
-		border: none;
-		background: none;
-	}
-	&:hover {
-		@include bg(#007BBF);
-		@include box-shadow(1px 1px 3px #999);
-		a, input {
-			color: #fff;
-		}
-	}
-	&:active {
-		@include hover;
-	}
-	&-IPC {
-		@include bg($normal_color);
-		box-shadow: inset 0px 0px 13px rgba(#242c56, 0.3);
-		border-radius: 10px;
-		input {
-			color: $normal_color2;
-			font-family: $normal_font2;
-			font-weight: bolder;
-		}
-	}
-}
+
+@import "module/_btn";
 
 // @import "_materialBtn";
 
@@ -143,37 +93,7 @@ form select {
 /*========================================================================*\
 		>	loading
 \*========================================================================*/
-// body {
-//   width: 100%;
-//   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-//   opacity: 1;
-//   -moz-transition: opacity 1s ease-out;
-//   -o-transition: opacity 1s ease-out;
-//   -webkit-transition: opacity 1s ease-out;
-//   transition: opacity 1s ease-out;
-// }
-
-// .loading {
-//   max-width: 100%;
-//   max-height: 100%;
-//   overflow: hidden;
-//   background: none;
-// }
-// .loading #Container {
-//   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-//   opacity: 0;
-// }
-// .loading:before {
-//   content: 'LOADING';
-//   display: block;
-//   margin: 20% 0 0;
-//   text-align: center;
-//   color: #595757;
-//   font-weight: bold;
-//   font-size: 2em;
-//   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50);
-//   opacity: 0.5;
-// }
+// @import "module/_loading";
 
 /*------------------------------------------------------------------------*\
 /*------------------------------------------------------------------------*\
@@ -194,27 +114,7 @@ form select {
 /*========================================================================*\
 		>	nav
 \*========================================================================*/
-.nav-IPC {
-	&:first-of-type {
-		border-left: 1px solid #0c7db5;
-	}
-	&:last-of-type {
-		border-right: 1px solid #26a8e7;
-	}
-	a {
-		color: #fff;
-		padding: 0 1em;
-		border-left: 1px solid #26a8e7;
-		border-right: 1px solid #0c7db5;
-		@include transition(all 0.3s $easeInOutCubic);
-	}
-	&:hover {
-		a {
-			color: $normal_color2;
-			text-shadow: -1px -1px 3px darken($normal_color2, 20%);
-		}
-	}
-}
+
 
 /*------------------------------------------------------------------------*\
 /*------------------------------------------------------------------------*\
@@ -231,110 +131,13 @@ form select {
 /*========================================================================*\
 		>	mod
 \*========================================================================*/
-.tag_vertical {
-	overflow: hidden;
-	position: relative;
-	.showbox, .menu {
-		position: absolute;
-	}
-	.showbox {
-		a {
-			display: block;
-		}
-	}
-	.menu {
-		top: 0;
-	}
-}
+@import "module/_tag_vertical";
 
 @import "module/_tabs";
 
 @import "project/_MOD";
 
 
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	AsideMod
-\*========================================================================*/
-@import "project/_AsideMod";
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	CntMod
-\*========================================================================*/
-@import "project/_CntMod";
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	CntModBd
-\*========================================================================*/
-@import "project/_CntModBd";
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	Index_page
-\*========================================================================*/
-@import "project/_Index_page";
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	BookList_page
-\*========================================================================*/
-@import "project/_BookList_page";
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	BookList_page
-\*========================================================================*/
-@import "project/_BookCnt_page";
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	book
-\*========================================================================*/
-%fontStyle1 {
-	@include adjust-font-size-to(13px);
-	color: #666;
-}
-.book {
-	&-name {
-		@include adjust-font-size-to(13px, 0.7);
-		color: $normal_color;
-		font-weight: bolder;
-	}
-	&-auth {
-		@extend %fontStyle1;
-	}
-	&-price {
-		@extend %fontStyle1;
-	}
-	&-pre_price {
-		@extend %fontStyle1;
-	}
-}
-
-/*------------------------------------------------------------------------*\
-/*------------------------------------------------------------------------*\
-/*========================================================================*\
-		>	lesson
-\*========================================================================*/
-.lesson {
-	&-name {
-		@include adjust-font-size-to(17px, 0.9);
-		@include adjust-leading-to(0.9);
-		text-shadow: 0px 0px 1px $Grey_color1;
-	}
-	&-cnt {
-		@include adjust-font-size-to(13px, 0.75);
-	}
-}
 
 
 /*------------------------------------------------------------------------*\

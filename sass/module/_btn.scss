@@ -1,0 +1,52 @@
+.btn {
+	@include bg(#727171);
+	// @include transition(all 0.3s ease-in-out);
+	position: relative;
+	// padding: 8px 30px;
+	border: 0;
+	// margin: 10px 1px;
+	cursor: pointer;
+	border-radius: 2px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgba(255, 255, 255, .84);
+	// -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	// transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+	outline: 0!important;
+	display: table;
+	a, input {
+		padding: 6px 13px;
+		color: #fff;
+		font-size: $fz-L;
+		font-weight: bolder;
+		letter-spacing: 1px;
+	}
+	a {
+		display: table-cell;
+	}
+	input {
+		border: none;
+		background: none;
+	}
+	&:hover {
+		@include bg(#007BBF);
+		@include box-shadow(1px 1px 3px #999);
+		a, input {
+			color: #fff;
+		}
+	}
+	&:active {
+		@include hover;
+	}
+	&-IPC {
+		@include bg($normal_color);
+		box-shadow: inset 0px 0px 13px rgba(#242c56, 0.3);
+		border-radius: 10px;
+		input {
+			color: $normal_color2;
+			font-family: $normal_font2;
+			font-weight: bolder;
+		}
+	}
+}
