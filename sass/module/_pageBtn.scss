@@ -10,32 +10,25 @@
 		float: right;
 	}
 	li {
-		width: 30px !important;
-		height: 30px !important;
-		background: #fff;
+		// width: 30px !important;
+		// height: 30px !important;
 		display: block;
-		border: 1px solid $normal_color2;
 		margin-right: 5px;
 		text-align: center;
 		line-height: 30px;
 		float: left;
-		@include circle(30px);
+		// @include circle(30px);
 		position: relative;
-		&.active {
-			background: $normal_color2;
-			&>a {
-				color: #fff;
-			}
-		}
-		&:hover {
-			background: $normal_color;
-			border: 1px solid $normal_color;
-			&>a {
-				color: #fff;
-			}
-		}
 		&.number {
+			@include wh(30px);
+			background: #cfcfcf;
+			border: 1px solid #cfcfcf;
 			&:hover {
+				background: $normal_color;
+				border: 1px solid $normal_color;
+				a {
+					color: #fff;
+				}
 				&:after {
 					@include psudoClass;
 					@include triBtm($normal_color, 10px, 9px);
@@ -45,23 +38,47 @@
 				}
 			}
 		}
-		&.prev {
-			border: none;
-			padding: 6px;
-			background: none;
+		&.active {
+			background: $normal_color;
+			border: 1px solid $normal_color;
 			&>a {
-				@include triPrev($normal_color, 10px);
+				color: #fff;
+			}
+		}
+		&:hover {
+		}
+		&.prev {
+			width: auto;
+			border: none;
+			// padding: 6px;
+			background: none;
+			margin: 0 1.5em;
+			&>a {
+				// @include triPrev($normal_color, 10px);
+				// display: inline-block;
+				.icon {
+					@include wh(27px);
+					@include bg-i(-47px, 0);
+				}
 			}
 			&:hover {
 				background: none;
 			}
 		}
 		&.next {
+			width: auto;
 			border: none;
-			padding: 6px;
+			// padding: 6px;
 			background: none;
+			margin: 0 1.5em;
 			&>a {
-				@include triNext($normal_color, 10px);
+				// @include triNext($normal_color, 10px);
+				// display: inline-block;
+				.icon {
+					@include wh(27px);
+					@include bg-i(-47px, 0);
+					@include rotate(180deg);
+				}
 			}
 			&:hover {
 				background: none;
@@ -70,15 +87,15 @@
 	}
 	.page_select {
 		width: auto;
-		border: 1px solid $normal_color;
+		// border: 1px solid $normal_color;
 		&:hover {
-			background-color: $normal_color2;
+			// background-color: $normal_color2;
 		}
 		select {
 			height: 25px;
 			width: auto;
 			background-color: #fff;
-			border: 0;
+			// border: 0;
 			cursor: pointer;
 			line-height: 30px;
 			font-weight: normal;
@@ -89,13 +106,13 @@
 	}
 	a {
 		display: block;
-		color: $normal_color;
+		color: #000;
 		font-size: 15px;
 		font-family: $normal_font;
 		font-weight: bolder;
 		line-height: 30px;
 		&:hover {
-			@include scale(1.1);
+			@include scale(1.05);
 		}
 	}
 }

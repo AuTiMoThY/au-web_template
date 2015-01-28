@@ -30,20 +30,13 @@ footer {
 	}
 }
 
-.affiliate {
-	p {
-		@include wh(100%, 8px);
-		@include bg('txts.png', 0, -250px);
-		margin-bottom: 0.5em;
-	}
-}
 
 .epaper {
 	&-block {
 		margin-bottom: 0.5em;
 		p {
 			@include wh(100%, 17px);
-			@include bg('txts.png', 0, -268px);
+			// @include bg('txts.png', 0, -268px);
 			margin-bottom: 0.5em;
 			position: relative;
 		}
@@ -101,7 +94,7 @@ footer {
 									  (item6, 19px, -222px, -309px) {
 			.#{$navItem} & {
 				width: #{$w};
-				@include bg('iconTxt.png', $x, $y);
+				// @include bg('iconTxt.png', $x, $y);
 			}
 		}
 	}

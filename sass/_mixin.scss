@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.8.2
+//		V 3.8.6
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -27,12 +27,17 @@
 	} @else if $name == "fixed" or $name == "scroll" {
 		$atta: $name;
 		background-attachment: $atta;
+	} @else if $name == "none"{
+		background-image: none;
 	} @else {
 		background: image-url(#{$name}) $bgpx $bgpy $repeat;
 	}
 }
-@mixin bg-iconTxt($x:0, $y:0) {
+@mixin bg-i($x:0, $y:0) {
 	@include bg('iconTxt.png', $x, $y);
+}
+@mixin bg-t($x:0, $y:0) {
+	@include bg('txts.png', $x, $y);
 }
 @mixin hide_txt() {
 	text-indent: 110%;
@@ -43,6 +48,10 @@
 @mixin hover($top:1px, $left:1px) {
 	@include translate($top, $left);
 }
+
+//========================================================================*\
+//	>	align center
+//========================================================================*/
 @mixin align-C() {
 	display: table-cell;
 	text-align: center;
@@ -53,6 +62,14 @@
 	top: 50%;
 	@include translateY(-50%);
 }
+@mixin vc() {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+
 @mixin psudoClass() {
 	content: '';
 	display: block;
@@ -63,11 +80,7 @@
 	text-overflow: ellipsis;
 }
 
-@mixin circle($width, $height:$width) {
-	width: $width;
-	height: $height;
-	border-radius: 50%;
-}
+
 @mixin picImg() {
 	height: auto;
 	display: block;
@@ -104,7 +117,18 @@
 	font-size: 1em;
 	line-height: 1.6;
 }
+
+
+//========================================================================*\
+//	>	Shape
+//========================================================================*/
+@mixin circle($width, $height:$width) {
+	width: $width;
+	height: $height;
+	border-radius: 50%;
+}
 @mixin triPrev($color, $w, $w2:(($w * 2) - 3px)) {
+	@include wh(0);
 	border: {
 		style: solid;
 		width: $w $w2 $w 0;
@@ -112,6 +136,7 @@
 	}
 }
 @mixin triNext($color, $w, $w2:(($w * 2) - 3px)) {
+	@include wh(0);
 	border: {
 		style: solid;
 		width: $w 0 $w $w2;
@@ -119,6 +144,7 @@
 	}
 }
 @mixin triBtm($color, $w, $w2:(($w * 2) - 3px)) {
+	@include wh(0);
 	border: {
 		style: solid;
 		width: $w2 $w 0 $w;
@@ -126,12 +152,15 @@
 	}
 }
 @mixin triTop($color, $w, $w2:(($w * 2) - 3px)) {
+	@include wh(0);
 	border: {
 		style: solid;
 		width: 0 $w $w2 $w;
 		color: transparent transparent $color transparent;
 	}
 }
+
+
 
 @mixin specBorder() {
 	@include bg(#f4f4f4);
@@ -179,4 +208,22 @@
   }
 }
 
+//========================================================================*\
+//	>	project
+//========================================================================*/
+@mixin addToCartBtn() {
+	@include wh(167px, 43px);
+	@include bg('iconTxt.png', 0, -368px);
+	padding-left: 0;
+	padding-right: 0;
+}
+
+@mixin line() {
+	@include psudoClass;
+	@include wh;
+	@include bg('line2.png', 0, 0, repeat);
+	position: absolute;
+	top: 0;
+	z-index: 0;
+}
 

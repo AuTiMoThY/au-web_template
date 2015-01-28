@@ -1,0 +1,307 @@
+@charset "UTF-8";
+
+button.btn {
+	// padding-top: 0;
+	// padding-bottom: 0;
+	// margin-bottom: 0;
+}
+
+.btn {
+	@include bg(#727171);
+	// @include transition(all 0.3s ease-in-out);
+	position: relative;
+	// padding: 8px 30px;
+	border: 0;
+	// margin: 10px 1px;
+	cursor: pointer;
+	border-radius: 5px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: rgba(255, 255, 255, .84);
+	// -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	// transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+	outline: 0!important;
+	display: table;
+	a, input {
+		padding: 6px 13px;
+		color: #fff;
+		font-size: $fz-L;
+		font-weight: bolder;
+		letter-spacing: 1px;
+	}
+	a {
+		display: table-cell;
+	}
+	input, button {
+		border: none;
+		background: none;
+	}
+	&:hover {
+		@include bg(#007BBF);
+		@include box-shadow(1px 1px 3px #999);
+		a, input {
+			color: #fff;
+		}
+	}
+	&:active {
+		@include hover();
+	}
+/*========================================================================*\
+		project 
+\*========================================================================*/
+	.mod-IPC_choice & {
+		width: 49%;
+		@include bg($normal_color);
+		border-radius: 0;
+		a {
+			padding: 0;
+			@include adjust-font-size-to(13px);
+			font-weight: normal;
+			text-align: center;
+		}
+		&:first-of-type {
+			margin-right: 1.8%;
+		}
+	}
+	&-IPC {
+		@include bg($normal_color);
+		box-shadow: inset 0px 0px 13px rgba(#242c56, 0.3);
+		border-radius: 10px;
+		input {
+			color: $normal_color2;
+			font-family: $normal_font2;
+			font-weight: bolder;
+		}
+	}
+	&-fb_login {
+		height: 50px;
+		@include background-image(linear-gradient(#e1e1e1, #fff 50%, #e1e1e1 51%, #e1e1e1));
+		border-radius: 5px;
+		border: 1px solid #aca7a7;
+		padding: 0 0.5em;
+		margin-bottom: 1em;
+		position: relative;
+		&:hover {
+			@include hover;
+		}
+		.txt {
+			@include bg-t(-237px, -304px);
+			// @include vc;
+			// margin-top: 0.25em;
+			.memMod & {
+				@include wh(167px, 31px);
+			}
+		}
+		.icon {
+			// margin-top: 0;
+			// margin-top: 0.25em;
+			// @include vc;
+		}
+		button {
+			@include wh;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	@each $btn, $Color1, $Color2 in
+		(login, #006ab9, #0083cf),
+		(join, #f15d00, #f17700),
+		(send, #cc1900, #d82c13) {
+		&-#{$btn} {
+			height: 35px;
+			@include background-image(linear-gradient($Color1, $Color2 50%, $Color1 51%));
+			&:hover {
+				@include background-image(linear-gradient(darken($Color1, 3%), darken($Color2, 3%) 50%, darken($Color1, 3%) 51%));
+			}
+		}
+	}
+	&-closeWindow {
+		@include wh(140px, 30px);
+		@include background-image(linear-gradient(#2287d3, #0062ac));
+		display: block;
+		margin: auto;
+		padding-top: 0;
+		padding-bottom: 0;
+		span {
+			@include wh(80px, 100%);
+			@include bg-t(-508px, -199px);
+			display: block;
+			margin: auto;
+		}
+	}
+	&-couponSubmit {
+		@include background-image(linear-gradient(#ff9200, #ef6800));
+	}
+
+	@include atRoot{
+/*========================================================================*\
+		>> btn	cntMod-latest_course  本月課程
+\*========================================================================*/
+	.cntMod-latest_course-btns &, 
+	.mod-upcomming_event-btns & {
+		width: 32.5%;
+		border-radius: 0;
+		margin-left: 1%;
+		&:first-of-type {
+			margin-left: 0;
+		}
+		&:hover {
+			@include hover;
+		}
+		&.btn-grey {
+			@include bg(#9fa0a0);
+		}
+		&.btn-lightblue {
+			@include bg(#039dc5);
+		}
+		a {
+			display: block;
+			font-size: 13px;
+			text-align: center;
+			.icon {
+				position: absolute;
+			}
+		}
+		@each $btn, $w, $h, $x, $y, $top in
+			(inf,   21px, 19px, -407px, -199px, 0px),
+			(fav,   16px, 14px, -385px, -201px, 2px),
+			(apply, 16px, 18px, -432px, -199px, 0px) {
+			&-#{$btn} {
+				a {
+					text-indent: ($w + 2px);
+					.txt {
+						position: relative;
+					}
+					.icon {
+						content: '';
+						display: inline-block;
+						@include wh($w, $h);
+						@include bg-i($x, $y);
+						top: $top;
+						left: ($w + 2px) * -1;
+					}
+				}
+			}
+		}
+	}
+	};
+
+	@include atRoot{
+/*========================================================================*\
+		>> btn	mod-upcomming_event-btns  預告
+\*========================================================================*/
+	.mod-upcomming_event-btns {
+		.btn {
+			a {
+				padding: 6px 5px;
+			}
+		}
+	}
+	};
+
+	@include atRoot{
+/*========================================================================*\
+		>> btn	cntMod-eventCnt-btns  課程內頁
+\*========================================================================*/
+	.cntMod-eventCnt-btns {
+		width: 130px + 130px + 20px !important;
+		margin: auto;
+		.btn {
+			@include bg-i;
+			@include wh(130px, 35px);
+			border-radius: 0;
+			@include col;
+			@each $btn, $x, $y, $mr in
+				(btn-apply, 0, -600px, 20px),
+				(btn-favor, -142px, -600px, 0) {
+				&.#{$btn} {
+					@include bg($x, $y);
+					margin-right: $mr;
+				}
+			}
+			&:hover {
+				@include hover;
+			}
+			a {
+				@include wh;
+				display: block;
+			}
+		}
+	}
+	.eventCnt & {
+		display: block;
+		border-radius: 0;
+		&.btn-goList {
+			@include wh(130px, 35px);
+			@include bg-i(0, -640px);
+			margin: auto;
+		}
+		&:hover {
+			@include hover;
+		}
+		a {
+			@include wh;
+			display: block;
+		}
+	}
+	};
+
+	@include atRoot{
+/*========================================================================*\
+		>>  myIPC_exchange  兌換商城
+\*========================================================================*/
+	&-exchange {
+		height: 40px;
+		@include bg('btn_bg1.png', 0, 0, repeat);
+		overflow: hidden;
+		button {
+			@include wh;
+			border-color: transparent;
+			padding: 13px 0 0;
+			margin: 0;
+			text-align: center;
+		}
+		&:hover {
+			// @include hover;
+		}
+	}
+	}
+
+
+}//.btn
+
+
+/*========================================================================*\
+		>> btn	memMod-myIPC_member-btns  帳號資訊
+\*========================================================================*/
+$myIPC_memberMR: 60px;
+.memMod-myIPC_member-btns {
+	width: (150px * 2) + $myIPC_memberMR + 5px !important;
+	margin: auto;
+	.btn {
+		width: 150px;
+		height: 40px;
+		&:hover {
+			@include hover;
+		}
+		a {
+			@include wh;
+			padding: 0;
+			display: block;
+			font-size: 20px;
+			font-weight: normal;
+			line-height: 40px;
+			text-align: center;
+		}
+		&-submit {
+			@include background-image(linear-gradient(#ff9200, #ef6700));
+			margin-right: $myIPC_memberMR;
+		}
+	}
+}
+
+
+
+
+

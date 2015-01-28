@@ -7,6 +7,7 @@
 /*
 * TOC
 * 
+* _Initial
 * _Layout
 * btn
 * form input textarea
@@ -18,12 +19,19 @@
 * mod
 * AsideMod
 * CntMod
+* CntModBd
+* memMod
 * Index_page
 * BookList_page
-* BookList_page
+* BookCnt_page
+* EventCnt_page
 * book
 * lesson
 * font    icon
+*  - icon  達人會員
+*  - icon  fb icon large
+*  - icon  好文收藏
+*  - icon  追蹤清單
 */
 
 @import "_variable";
@@ -58,8 +66,7 @@
 		>	btn
 \*========================================================================*/
 @import "module/_pageBtn";
-
-@import "module/_btn";
+@import "_BTN";
 
 // @import "_materialBtn";
 
@@ -77,11 +84,11 @@ form select {
 	// max-width:500px;
 	height: 30px;
 	background:#f4f4f4;
-	border:2px solid #bec2c5;
+	border:1px solid $bd_color2;
 	// padding:4px 0;
 	color:#303030;
 	// text-indent:8px;
-	@include box-shadow(inset 1px 3px 5px 0px rgba(0,0,0,0.4));
+	@include box-shadow(inset 1px 1px 5px 0px rgba(0,0,0,0.4));
 }
 form select {
 	@include box-shadow(none);
@@ -114,7 +121,53 @@ form select {
 /*========================================================================*\
 		>	nav
 \*========================================================================*/
-
+$bdColor_G1: #289884;
+$bdColor_G2: #42c6b7;
+$bdColor_B1: #26a8e7;
+$bdColor_B2: #0c7db5;
+.nav-IPC {
+	&:first-of-type {
+		border-left: 1px solid $bdColor_B2;
+		@each $page, $bdColor_G1 in
+			(events_page, $bdColor_G1),
+			(events_page, $bdColor_G1) {
+			.#{$page} & {
+				border-left: 1px solid $bdColor_G1;
+			}
+		}
+	}
+	&:last-of-type {
+		border-right: 1px solid $bdColor_B1;
+		@each $page, $bdColor_G1 in
+			(events_page, $bdColor_G2),
+			(events_page, $bdColor_G2) {
+			.#{$page} & {
+				border-right: 1px solid $bdColor_G2;
+			}
+		}
+	}
+	a {
+		color: #fff;
+		padding: 0 1em;
+		border-left: 1px solid $bdColor_B1;
+		border-right: 1px solid $bdColor_B2;
+		@include transition(all 0.3s $easeInOutCubic);
+		@each $page, $bdColor_G1, $bdColor_G2 in
+			(events_page, $bdColor_G1, $bdColor_G2),
+			(events_page, $bdColor_G1, $bdColor_G2) {
+			.#{$page} & {
+				border-left: 1px solid $bdColor_G2;
+				border-right: 1px solid $bdColor_G1;
+			}
+		}
+	}
+	&:hover {
+		a {
+			color: $normal_color2;
+			text-shadow: -1px -1px 3px darken($normal_color2, 20%);
+		}
+	}
+}
 
 /*------------------------------------------------------------------------*\
 /*------------------------------------------------------------------------*\
@@ -126,18 +179,139 @@ form select {
 }
 @import "_CAROUSEL";
 
+
 /*------------------------------------------------------------------------*\
 /*------------------------------------------------------------------------*\
 /*========================================================================*\
 		>	mod
 \*========================================================================*/
-@import "module/_tag_vertical";
+.tag_vertical {
+	overflow: hidden;
+	position: relative;
+	.showbox, .menu {
+		position: absolute;
+	}
+	.showbox {
+		a {
+			display: block;
+		}
+	}
+	.menu {
+		top: 0;
+	}
+}
 
 @import "module/_tabs";
 
 @import "project/_MOD";
 
 
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	AsideMod
+\*========================================================================*/
+@import "project/_AsideMod";
+@import "project/_AsideModB";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	CntMod
+\*========================================================================*/
+@import "project/_CntMod";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	CntModBd
+\*========================================================================*/
+@import "project/_CntModBd";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	memMod
+\*========================================================================*/
+@import "project/_memMod";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	Index_page
+\*========================================================================*/
+@import "project/_Index_page";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	BookList_page
+\*========================================================================*/
+@import "project/_BookList_page";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	BookCnt_page
+\*========================================================================*/
+@import "project/_BookCnt_page";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	EventCnt_page
+\*========================================================================*/
+@import "project/_EventCnt_page";
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	myIPC_page.scss
+\*========================================================================*/
+@import "project/_myIPC_page";
+
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	book
+\*========================================================================*/
+%fontStyle1 {
+	@include adjust-font-size-to(13px);
+	color: #666;
+}
+.book {
+	&-name {
+		@include adjust-font-size-to(13px, 0.7);
+		color: $normal_color;
+		font-weight: bolder;
+	}
+	&-auth {
+		@extend %fontStyle1;
+	}
+	&-price {
+		@extend %fontStyle1;
+	}
+	&-pre_price {
+		@extend %fontStyle1;
+	}
+}
+
+/*------------------------------------------------------------------------*\
+/*------------------------------------------------------------------------*\
+/*========================================================================*\
+		>	lesson
+\*========================================================================*/
+.lesson {
+	&-name {
+		@include adjust-font-size-to(17px, 0.9);
+		@include adjust-leading-to(0.9);
+		text-shadow: 0px 0px 1px $Grey_color1;
+	}
+	&-cnt {
+		@include adjust-font-size-to(13px, 0.75);
+	}
+}
 
 
 /*------------------------------------------------------------------------*\
@@ -150,6 +324,9 @@ form select {
 		color: #f20101;
 		font-size: 1.3em;
 		font-weight: bolder;
+	}
+	&-r1 {
+		color: #9c0000;
 	}
 	&-b {
 		color: $normal_color;
@@ -175,9 +352,165 @@ form select {
 	&-ora1 {
 		color: #e67800;
 	}
+	&-ora2 {
+		color: #ed5800;
+		font-size: 1.3em;
+		font-weight: bold;
+	}
+	&-ora3 {
+		color: #ef6600;
+		text-decoration: underline;
+	}
+	&-ora4 {
+		color: #f16e00;
+		font-size: 1.3em;
+	}
+	&-Gr {
+		color: #a4a4a4;
+	}
+	&-Gr1 {
+		color: $Grey_color1;
+	}
+	&-m_inf {
+		color: #a60c4e;
+		font-weight: bold;
+	}
+	&-tableLink {
+		color: $Grey_color1;
+		&:hover {
+			font-weight: bolder;
+			color: $normal_color;
+		}
+	}
 }
+.tdlt {
+	text-decoration: line-through;
+}
+a {
+	&.txt {
+		&-Gr1 {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		&-ora1 {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+
+
+
 .fa-angle-left, .fa-angle-right {
 	color: #fff;
 	@include scale(1.1);
 }
+.fa-file-text-o {
+	color: $Grey_color1;
+	&:hover {
+		&:before{
+			display: block;
+			@include scale(1.3);
+		}
+		color: darken(#0079d4, 10%);
+		text-shadow: -1px -1px 0px $bd_color4;
+	}
+}
+.tri {
+	display: inline-block;
+}
 
+
+
+button.icon {
+	margin: 0;
+	border: none;
+}
+.icon {
+@include atRoot{
+/*========================================================================*\
+		>>	icon  達人會員
+\*========================================================================*/
+	&-expert {
+		@include wh(35px, 36px);
+		@include bg('iconTxt.png', -265px, -368px);
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 0.5em;
+	}
+};
+
+@include atRoot{
+/*========================================================================*\
+		>>	icon  fb icon large
+\*========================================================================*/
+	&-fbLogin_large {
+		.memMod & {
+			@include wh(42px);
+			@include bg-i(-89px, -422px);
+		}
+	}
+};
+
+@include atRoot{
+/*========================================================================*\
+		>>	icon  好文收藏
+\*========================================================================*/
+%myIPCarticleIcon {
+	@include wh(41px, 30px);
+	display: block;
+}
+.memMod-myIPC_article-block {
+	.category-1 {
+		.icon {
+			@extend %myIPCarticleIcon;
+			@include bg-i(-265px, -422px);
+		}
+	}
+	.category-2 {
+		.icon {
+			@extend %myIPCarticleIcon;
+			@include bg-i(-265px, -464px);
+		}
+	}
+}
+	&-proArt {
+		// @extend %myIPCarticleIcon;
+		// @include bg-i(-265px, -422px);
+	}
+	&-norArt {
+		// @extend %myIPCarticleIcon;
+		// @include bg-i(-265px, -464px);
+	}
+};
+
+@include atRoot{
+/*========================================================================*\
+		>>	icon  追蹤清單
+\*========================================================================*/
+	.memMod-myIPC_favorite-block {
+		button.icon {
+			@include wh(28px, 26px);
+			&:hover {
+				box-shadow: none;
+			}
+		}
+	}
+	&-fav2Cart {
+		@include bg-i(-310px, -609px);
+		&:hover {
+			@include bg(-344px, -609px);
+		}
+	}
+	&-favRemove {
+		@include bg-i(-310px, -640px);
+		&:hover {
+			@include bg(-344px, -640px);
+		}
+	}
+};
+
+}

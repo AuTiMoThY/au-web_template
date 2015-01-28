@@ -20,16 +20,22 @@ $normal_color: #0068b7;
 $normal_color2: #fdd209;
 $normal_color3: #e67800;
 $normal_color4: #af1355;
+$normal_color5: #18a482;
+$normal_color5_1: #54d4d5;
 
 $logo_color1: #6EB92B;
 $logo_color2: #5C605D;
 
+$green: #6fba2c;
 
 $bd_color: #898989;
 $bd_color1: lighten($bd_color, 15.5%);//#b1b1b1
 $bd_color2: lighten($bd_color, 20%);//#bcbcbc
 $bd_color3: lighten($bd_color, 25%);//#c9c9c9
+$bd_color4: lighten($bd_color, 30%);//#d5d5d5
 
+$mainColor1_1: #26cda4;
+$mainColor1_2: #2ea98b;
 
 
 
@@ -47,6 +53,7 @@ $Grey_color4: #9b9b9b;
 $Grey_color5: #dddddd;
 $Grey_color6: #b6b6b6;
 $Grey_color7: #e3e2e2;
+$Grey_color8: #e0e0e0;
 
 
 
@@ -74,6 +81,7 @@ $fz-SS: 9px;
 $base-font-size: 16px;
 $base-line-height: 24px;
 
+// $rhythm-unit: rem;
 
 //------------------------------------*\
 //		easing
@@ -81,6 +89,7 @@ $base-line-height: 24px;
 $easing1: cubic-bezier(0.4, 0, 0.2, 1);
 $easing2: cubic-bezier(0.7, 0, 0.3, 1);
 $easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+$easeInOutCubic2: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
 
 
