@@ -36,7 +36,7 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 body {
-	font-family: "PMingLiU", \65B0\7EC6\660E\4F53, Arial, "Helvetica Neue", Helvetica, sans-serif;
+	/*font-family: "PMingLiU", \65B0\7EC6\660E\4F53, Arial, "Helvetica Neue", Helvetica, sans-serif;*/
 	font-weight: normal;
 	font-style: normal;
 	line-height: 1;
@@ -46,7 +46,7 @@ body {
 /* Let's default this puppy out
 -------------------------------------------------------------------------------*/
 
-html, body, body div, span, iframe, h1, h2, h3, h4, h5, h6, p, em, img, small, strong, b, i, article, aside, figure, footer, header, nav, section {
+html, body, body div, span, iframe, h1, h2, h3, h4, h5, h6, p, em, img, small, strong, b, i {
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
@@ -75,7 +75,14 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 }
-object, blockquote, ins, kbd, q, samp, sub, sup, var, pre, abbr, address, cite, code, del, dfn, menu, time, mark, audio, video, details, summary {
+object, blockquote, ins, kbd, q, samp, sub, sup, var, pre, abbr, address, cite, code, del, dfn, menu, time, mark, audio, video {
+	border: 0;
+	font-size: 100%;
+	font-weight: normal;
+	vertical-align: baseline;
+	background: transparent;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
 	border: 0;
 	font-size: 100%;
 	font-weight: normal;
@@ -93,9 +100,7 @@ html,body { font-size:100%;}
  * Correct `block` display not defined for `main` in IE 11.
  */
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
-	display: block;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {display: block; }
 
 /* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
 
@@ -230,7 +235,7 @@ input[type="submit"] {
   cursor: pointer; /* 3 */
 }
 /* hand cursor on clickable elements */
-.clickable, label, input[type=file] {cursor: pointer;}
+.clickable, label, input[type="file"] {cursor: pointer;}
 
 /**
  * Re-set default cursor for disabled elements.
@@ -254,9 +259,7 @@ input {line-height: normal; }
  * decrement button to change from `default` to `text`.
  */
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
+input[type="number"]::-webkit-outer-spin-button {height: auto; }
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
@@ -265,9 +268,11 @@ input[type="number"]::-webkit-outer-spin-button {
  */
 input[type="search"] {
   -webkit-appearance: textfield; /* 1 */
+/*
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; /* 2 */
+  -webkit-box-sizing: content-box; /* 2 *
   box-sizing: content-box;
+*/
 }
 
 /**
@@ -276,14 +281,12 @@ input[type="search"] {
  * padding (and `textfield` appearance).
  */
 input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
+input[type="search"]::-webkit-search-decoration {-webkit-appearance: none; }
 
 /**
  * Define consistent border, margin, and padding.
  */
-fieldset {border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }
+/*fieldset {border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35em 0.625em 0.75em; }*/
 /**
  * Remove default vertical scrollbar in IE 8/9/10/11.
  */
@@ -320,7 +323,7 @@ th {font-weight: bold; vertical-align: bottom;}
 td {font-weight: normal;}
 td, td img {vertical-align: top;}
 
-table {font-size: inherit; font: 100%;}
+table {font-size: inherit;}
 
 
 /* standardize any monospaced elements */
@@ -371,36 +374,22 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight:bold;
 	font-style:normal;
 	text-rendering:optimizeLegibility;
-	margin-top:0.2em;
-	margin-bottom:0.5em;
-	line-height:1.2125em;
+
 }
 
 p {
 	font-family:inherit;
 	font-weight:normal;
 	font-size:1em;
-	line-height:1.6;
-	/*margin-bottom:1.25em;*/
 	text-rendering:optimizeLegibility;
 }
 
 
 /* let's clear some floats */
-.clearfix:before, .clearfix:after {
-	content: "";
-	display: table;
-	height: 0;
-	overflow: hidden;
-}
+.clearfix:before, .clearfix:after {content: ""; display: table; height: 0; overflow: hidden; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-.cf:before, .cf:after {
-	content: "";
-	display: table;
-	height: 0;
-	overflow: hidden;
-}
+.cf:before, .cf:after {content: ""; display: table; height: 0; overflow: hidden; }
 .cf:after { clear: both; }
 .cf { zoom: 1; }
 

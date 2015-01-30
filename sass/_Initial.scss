@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .hide_txt {
 	@include hide_txt;
 }
@@ -34,18 +36,16 @@ body {
 	}
 }
 
-.swing {
-	-webkit-transform-origin: 50% 80%;
-	-ms-transform-origin: 50% 80%;
-	transform-origin: 50% 80%;
-}
-
 .temporary {
 	display: block;
 	margin: 0 auto;
 }
+
 .ib {
 	@include ib;
+}
+.col {
+	@include col;
 }
 .col-2 {
 	@include col-2;
@@ -56,8 +56,54 @@ body {
 .col-4 {
 	@include col-4;
 }
-.col {
-	@include col;
+
+
+
+%head {
+	margin-top:0.2em;
+	margin-bottom:0.5em;
+	line-height:1.2125em;
+	letter-spacing:2px;
+}
+@for $i from 1 through 6 {
+	h#{$i} {
+		@extend %head;
+	}
 }
 
+p {
+	line-height:1.6;
+	/*margin-bottom:1.25em;*/
+}
 
+.left{float:left !important;}
+.right{float:right !important;}
+.text-left{text-align:left !important;}
+.text-right{text-align:right !important;}
+.text-center{text-align:center !important;}
+.text-justify{text-align:justify !important;}
+
+.hide, .hidden {display:none;}
+
+
+ul, ol, dl {list-style-position:outside;}
+dl dt{margin-bottom:0.3em;font-weight:bold;}
+dl dd{margin-bottom:0.75em;}
+
+
+
+
+/*========================================================================*\
+		test
+\*========================================================================*/
+.tdlt {
+	text-decoration: line-through;
+}
+.swing {
+	-webkit-transform-origin: 50% 80%;
+	-ms-transform-origin: 50% 80%;
+	transform-origin: 50% 80%;
+}
+.tri {
+	display: inline-block;
+}

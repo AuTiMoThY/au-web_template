@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.8.6
+//		V 3.8.7
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -14,8 +14,8 @@
 	}
 }
 @mixin bg($name, $bgpx:0, $bgpy:0, $repeat:no-repeat) {
-	$name: unquote($name);
-	$repeat: unquote($repeat);
+	// $name: unquote($name);
+	// $repeat: unquote($repeat);
 	@if type-of($name) == number {
 		//  background-position
 		$bgpxx: $name;

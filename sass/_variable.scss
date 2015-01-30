@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-$cnt_width: 1024px;
+$cnt_width: 1200px;
 
 $index_youtube_w: 285px;
 $index_youtube_h: 180px;
@@ -65,7 +65,8 @@ $DF_color2: #747474;
 //		font
 //------------------------------------*/
 $normal_font: "Microsoft JhengHei", "微軟正黑體", \5FAE\x8F6F\6B63\9ED1\4F53, Arial, "Helvetica Neue", Helvetica;
-$normal_font2: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$normal_font2: "PMingLiU", \65B0\7EC6\660E\4F53, Arial, "Helvetica Neue", Helvetica, sans-serif;
+$normal_font3: Arial, "Helvetica Neue", Helvetica, sans-serif;
 $ff-CenturyGothic: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 $ff-Verdana: Verdana, "Geneva", sans-serif;
 $ff-Helvetica:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -81,7 +82,7 @@ $fz-SS: 9px;
 $base-font-size: 16px;
 $base-line-height: 24px;
 
-// $rhythm-unit: rem;
+$rhythm-unit: rem;
 
 //------------------------------------*\
 //		easing

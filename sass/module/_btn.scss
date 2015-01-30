@@ -1,29 +1,48 @@
+@charset "UTF-8";
+
+button {
+	/*background-color:#2ba6cb;*/
+	/*border: 1px solid #2284a1;*/
+	/*margin:0 0 1.25em;*/
+	/*padding: 0.75em 1.5em 0.8125em 1.5em;*/
+	position:relative;
+	/*display:inline-block;*/
+	color:#fff;
+	font-size:1em;
+	font-weight:bold;
+	text-decoration:none;
+	text-align:center;
+	line-height:1;
+	outline: none;
+	&.btn {
+		border: none;
+		background: none;
+	}
+}
+
 .btn {
 	@include bg(#727171);
-	// @include transition(all 0.3s ease-in-out);
 	position: relative;
-	// padding: 8px 30px;
 	border: 0;
-	// margin: 10px 1px;
 	cursor: pointer;
-	border-radius: 2px;
+	color: rgba(255, 255, 255, .84);
+	border-radius: 5px;
 	text-transform: uppercase;
 	text-decoration: none;
-	color: rgba(255, 255, 255, .84);
-	// -webkit-transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
-	// transition: box-shadow .28s cubic-bezier(0.4, 0, .2, 1);
+	text-align:center;
 	@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
 	outline: 0!important;
-	display: table;
-	a, input {
+	// display: table;
+	display:inline-block;
+	a, input, button {
 		padding: 6px 13px;
 		color: #fff;
 		font-size: $fz-L;
-		font-weight: bolder;
+		font-weight: bold;
 		letter-spacing: 1px;
 	}
 	a {
-		display: table-cell;
+		// display: table-cell;
 	}
 	input {
 		border: none;
@@ -39,6 +58,10 @@
 	&:active {
 		@include hover;
 	}
+
+/*========================================================================*\
+		project 
+\*========================================================================*/
 	&-IPC {
 		@include bg($normal_color);
 		box-shadow: inset 0px 0px 13px rgba(#242c56, 0.3);
@@ -49,4 +72,67 @@
 			font-weight: bolder;
 		}
 	}
-}
+
+	&-fb_login {
+		height: 50px;
+		@include background-image(linear-gradient(#e1e1e1, #fff 50%, #e1e1e1 51%, #e1e1e1));
+		border-radius: 5px;
+		border: 1px solid #aca7a7;
+		padding: 0 0.5em;
+		margin-bottom: 1em;
+		position: relative;
+		&:hover {
+			@include hover;
+		}
+		.txt {
+			@include bg-t(-237px, -304px);
+			// @include vc;
+			// margin-top: 0.25em;
+			.memMod & {
+				@include wh(167px, 31px);
+			}
+		}
+		.icon {
+			// margin-top: 0;
+			// margin-top: 0.25em;
+			// @include vc;
+		}
+		button {
+			@include wh;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	@each $btn, $Color1, $Color2 in
+		(login, #006ab9, #0083cf),
+		(join, #f15d00, #f17700),
+		(send, #cc1900, #d82c13) {
+		&-#{$btn} {
+			height: 35px;
+			@include background-image(linear-gradient($Color1, $Color2 50%, $Color1 51%));
+			&:hover {
+				@include background-image(linear-gradient(darken($Color1, 3%), darken($Color2, 3%) 50%, darken($Color1, 3%) 51%));
+			}
+		}
+	}
+	&-closeWindow {
+		@include wh(140px, 30px);
+		@include background-image(linear-gradient(#2287d3, #0062ac));
+		display: block;
+		margin: auto;
+		padding-top: 0;
+		padding-bottom: 0;
+		span {
+			@include wh(80px, 100%);
+			@include bg-t(-508px, -199px);
+			display: block;
+			margin: auto;
+		}
+	}
+	&-couponSubmit {
+		@include background-image(linear-gradient(#ff9200, #ef6800));
+	}
+
+
+}//.btn
+

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+
+button.icon {
+	margin: 0;
+	border: none;
+}
+
+
+.icon {
+@include atRoot{
+/*========================================================================*\
+		>>	icon  達人會員
+\*========================================================================*/
+	&-expert {
+		@include wh(35px, 36px);
+		@include bg('iconTxt.png', -265px, -368px);
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 0.5em;
+	}
+};
+
+@include atRoot{
+/*========================================================================*\
+		>>	icon  fb icon large
+\*========================================================================*/
+	&-fbLogin_large {
+		.memMod & {
+			@include wh(42px);
+			@include bg-i(-89px, -422px);
+		}
+	}
+};
+
+@include atRoot{
+/*========================================================================*\
+		>>	icon  好文收藏
+\*========================================================================*/
+%myIPCarticleIcon {
+	@include wh(41px, 30px);
+	display: block;
+}
+.memMod-myIPC_article-block {
+	.category-1 {
+		.icon {
+			@extend %myIPCarticleIcon;
+			@include bg-i(-265px, -422px);
+		}
+	}
+	.category-2 {
+		.icon {
+			@extend %myIPCarticleIcon;
+			@include bg-i(-265px, -464px);
+		}
+	}
+}
+	&-proArt {
+		// @extend %myIPCarticleIcon;
+		// @include bg-i(-265px, -422px);
+	}
+	&-norArt {
+		// @extend %myIPCarticleIcon;
+		// @include bg-i(-265px, -464px);
+	}
+};
+
+@include atRoot{
+/*========================================================================*\
+		>>	icon  追蹤清單
+\*========================================================================*/
+	.memMod-myIPC_favorite-block {
+		button.icon {
+			@include wh(28px, 26px);
+			&:hover {
+				box-shadow: none;
+			}
+		}
+	}
+	&-fav2Cart {
+		@include bg-i(-310px, -609px);
+		&:hover {
+			@include bg(-344px, -609px);
+		}
+	}
+	&-favRemove {
+		@include bg-i(-310px, -640px);
+		&:hover {
+			@include bg(-344px, -640px);
+		}
+	}
+};
+
+}
