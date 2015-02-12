@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 3.8.7
+//		V 3.10.0
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number or $width == "auto" {
@@ -78,6 +78,13 @@
 	overflow:hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+@mixin adjFont($to-size, $font-weight:normal, $lines: auto, $from-size: $base-font-size) {
+	@include adjust-font-size-to($to-size, $lines, $from-size);
+	font-weight: $font-weight;
+}
+@mixin adjFontSize($to-size, $lines: auto, $from-size: $base-font-size) {
+	@include adjust-font-size-to($to-size, $lines, $from-size);
 }
 
 
@@ -159,6 +166,31 @@
 		color: transparent transparent $color transparent;
 	}
 }
+/// Triangle helper mixin
+/// @param {Direction} $direction - Triangle direction, either `top`, `right`, `bottom` or `left`
+/// @param {Color} $color [currentcolor] - Triangle color 
+/// @param {Length} $size [1em] - Triangle size
+@mixin triangle($direction, $color: currentcolor, $size: 1em) {
+  @if not index(top right bottom left, $direction) {
+    @error "Direction must be either `top`, `right`, `bottom` or `left`.";
+  }
+
+  width: 0;
+  height: 0;
+  content: '';
+  z-index: 2;
+  border-#{opposite-position($direction)}: ($size * 1.5) solid $color;
+  
+  $perpendicular-borders: $size solid transparent;
+  
+  @if $direction == top or $direction == bottom {
+    border-left:   $perpendicular-borders;
+    border-right:  $perpendicular-borders;
+  } @else if $direction == right or $direction == left {
+    border-bottom: $perpendicular-borders;
+    border-top:    $perpendicular-borders;
+  }
+}
 
 
 
@@ -171,8 +203,23 @@
 }
 
 
-
-
+///  Maintain Aspect Ratio Mixin
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
 
 @mixin container() {
 	position: relative;

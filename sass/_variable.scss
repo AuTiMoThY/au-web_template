@@ -1,12 +1,9 @@
 @charset "UTF-8";
 
-$cnt_width: 1200px;
+$cnt_width: 1370px;
 
-$index_youtube_w: 285px;
-$index_youtube_h: 180px;
 
-$news_pic_w: 120px;
-$news_pic_h: 80px;
+
 
 $bd_w: 2px;
 
@@ -16,7 +13,11 @@ $header_h: 73px;
 //		color
 //------------------------------------*/
 //project
-$normal_color: #0068b7;
+$normal_color: #efd9b8;
+
+
+
+
 $normal_color2: #fdd209;
 $normal_color3: #e67800;
 $normal_color4: #af1355;
@@ -91,6 +92,7 @@ $easing1: cubic-bezier(0.4, 0, 0.2, 1);
 $easing2: cubic-bezier(0.7, 0, 0.3, 1);
 $easeInOutCubic: cubic-bezier(0.645, 0.045, 0.355, 1);
 $easeInOutCubic2: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$easeInOutCubic3: cubic-bezier(0.12, 0.49, 0.17, 0.87);
 
 
 
@@ -102,6 +104,12 @@ $borderRadius: 8px; // 圓角半徑
 
 
 
+//------------------------------------*\
+//		box shadow
+//------------------------------------*/
+
+$boxShadow: 0px 9px 21px rgba(0, 0, 0, 0.75);
+$boxShadowHover: 3px 10px 21px rgba(0, 0, 0, 1);
 
 
 // $fill_in_table_bg: #edecea;
