@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 4.0.0
+//		V 4.0.1
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number {
@@ -119,8 +119,8 @@
 @mixin ib {
   display: inline-block;
   vertical-align: middle !important;
-  padding:0;
-  background-image:none
+  // padding:0;
+  // background-image:none
 }
 @mixin col {
   display: inline-block;
