@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 4.0.1
+//		V 4.0.2
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number {
@@ -87,20 +87,26 @@
 
 ///  Maintain Aspect Ratio Mixin
 @mixin aspectRatio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: ($height / $width) * 100%;
-  }
-  > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+	@if (unitless($width)) {
+		$width: $width * 1px;
+	}
+	@if (unitless($height)) {
+		$height: $height * 1px;
+	}
+	position: relative;
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+	> .content {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
 }
 
 
@@ -297,15 +303,28 @@ $easeSean: (
 //========================================================================*\
 //	>	RWD
 //========================================================================*/
+// Large Display: 1200px
+// Default: 980px
+// Tablet: 768px
+// Mobile: 480px
 @mixin respond-to($screenWidth) {
-  @if $screenWidth == L-screen {
+  @if $screenWidth == Lscreen {
     @media screen and (max-width: 1920px) { @content; }
   }
-  @else if $screenWidth == M-screen {
-    @media screen and (max-width: 1024px) { @content; }
+  @else if $screenWidth == Mscreen {
+    @media screen and (max-width: 1366px) { @content; }
   }
-  @else if $screenWidth == S-screen {
-    @media screen and (max-width: 320px) { @content; }
+  @else if $screenWidth == Sscreen {
+    @media screen and (max-width: 1200px) { @content; }
+  }
+  @else if $screenWidth == Default {
+    @media screen and (max-width: 980px) { @content; }
+  }
+  @else if $screenWidth == Tablet {
+    @media screen and (max-width: 768px) { @content; }
+  }
+  @else if $screenWidth == Mobile {
+    @media screen and (max-width: 480px) { @content; }
   }
 }
 
