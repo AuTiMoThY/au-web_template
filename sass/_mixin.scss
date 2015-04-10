@@ -1,6 +1,6 @@
 //------------------------------------*\
 //		AuTiMoThY
-//		V 4.0.2
+//		V 4.0.3
 //------------------------------------*/
 @mixin wh($width:100%, $height:$width) {
 	@if type-of($width) == number {
@@ -65,6 +65,51 @@
 	@include translate($top, $left);
 }
 
+@mixin psudoClass() {
+	content: '';
+	display: block;
+}
+
+
+@mixin picImg() {
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+@mixin ib {
+  display: inline-block;
+  vertical-align: middle !important;
+  // padding:0;
+  // background-image:none
+}
+@mixin col {
+  display: inline-block;
+  vertical-align: top;
+}
+@mixin col-2 {
+  @include col;
+  width: 49%;
+}
+@mixin col-3 {
+  @include col;
+  width: 32%;
+}
+@mixin col-4 {
+  @include col;
+  width: 24.9%;
+}
+@mixin atRoot() {
+	@at-root { @content; }
+}
+
+@mixin bgRWD($bg, $bgW, $bgH) {
+	width: 100%;
+	height: 0;
+	padding-bottom: ($bgH / $bgW) * 100%;
+	@include bg('#{$bg}', 50%, 50%);
+	@include background-size(cover);
+}
+
 //========================================================================*\
 //	>	align center
 //========================================================================*/
@@ -111,44 +156,6 @@
 
 
 
-@mixin psudoClass() {
-	content: '';
-	display: block;
-}
-
-
-@mixin picImg() {
-	height: auto;
-	display: block;
-	margin: 0 auto;
-}
-@mixin ib {
-  display: inline-block;
-  vertical-align: middle !important;
-  // padding:0;
-  // background-image:none
-}
-@mixin col {
-  display: inline-block;
-  vertical-align: top;
-}
-@mixin col-2 {
-  @include col;
-  width: 49%;
-}
-@mixin col-3 {
-  @include col;
-  width: 32%;
-}
-@mixin col-4 {
-  @include col;
-  width: 24.9%;
-}
-@mixin atRoot() {
-	@at-root { @content; }
-}
-
-
 //========================================================================*\
 //	>	text
 //========================================================================*/
@@ -183,7 +190,6 @@ $browser-context: 16;
 
   @return $pixels / $context * 1em;
 }
-
 
 
 //========================================================================*\
@@ -307,7 +313,7 @@ $easeSean: (
 // Default: 980px
 // Tablet: 768px
 // Mobile: 480px
-@mixin respond-to($screenWidth) {
+@mixin respondTo($screenWidth) {
   @if $screenWidth == Lscreen {
     @media screen and (max-width: 1920px) { @content; }
   }
@@ -318,7 +324,7 @@ $easeSean: (
     @media screen and (max-width: 1200px) { @content; }
   }
   @else if $screenWidth == Default {
-    @media screen and (max-width: 980px) { @content; }
+    @media screen and (max-width: 1024px) { @content; }
   }
   @else if $screenWidth == Tablet {
     @media screen and (max-width: 768px) { @content; }
@@ -331,6 +337,13 @@ $easeSean: (
 //========================================================================*\
 //	>	project
 //========================================================================*/
+@mixin Diamond($color, $w, $h:$w) {
+	left: -1em;
+	@include wh($w, $h);
+	@include bg($color);
+	// transform: rotateZ(45deg);
+	@include rotateZ(45deg);
+}
 @mixin ul() {
 	margin-bottom: 1.25em;
 	list-style-position: outside;
