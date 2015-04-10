@@ -11,7 +11,7 @@
 <!-- <script src="js/libs/ripples.js"></script> -->
 <script src="js/libs/classie.js"></script>
 <script src="js/libs/pathLoader.js"></script>
-<script src="asset/FlexSlider/jquery.flexslider.js"></script>
+<script src="plugin/FlexSlider/jquery.flexslider.js"></script>
 <script src="js/au.js"></script>
 
 

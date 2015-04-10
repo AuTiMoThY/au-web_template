@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="css/material-wfont.css">
 <link rel="stylesheet" href="css/font-awesome.css">
 <!-- <link rel="stylesheet" href="asset/fancybox/jquery.fancybox.css" /> -->
-<link rel="stylesheet" href="asset/FlexSlider/flexslider.css" />
+<link rel="stylesheet" href="plugin/FlexSlider/flexslider.css" />
 <!-- <link rel="stylesheet" href="css/effect2.css" /> -->
 <link rel="stylesheet" href="css/style.css" />
 
