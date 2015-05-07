@@ -16,22 +16,27 @@ input[type="tel"],
 input[type="time"],
 input[type="url"],
 textarea {
-	height:2em;
-	// height:2.3125em;
+	// display:block;
+	// max-width:500px;
+	// height: 30px;
+	// height:2em;
+	height:2.3125em;
 	width:100%;
-	background-color:#fff;
-	border:1px solid #ccc;
-	-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);
-	box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);
-	/*margin:0 0 1em 0;*/
 	padding:0.5em 0.8em;
+	/*margin:0 0 1em 0;*/
+	// padding:4px 0;
+	background-color: #f4f4f4;
+	border: 1px solid $bd_color2;
+	// border:1px solid #ccc;
+	color:#303030;
+	// text-indent:8px;
+	@include box-shadow(inset 1px 1px 5px 0px rgba(0,0,0,0.4));
+	// -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);
+	// box-shadow:inset 0 1px 2px rgba(0,0,0,0.1);
 	// color:rgba(0,0,0,0.75);
 	font-size:0.875em;
-	font-family:inherit;
-	display:block;
-// /*	-webkit-transition:-webkit-box-shadow 0.45s,border-color 0.45s ease-in-out;
-// 	-moz-transition:-moz-box-shadow 0.45s,border-color 0.45s ease-in-out;
-// 	transition:box-shadow 0.45s,border-color 0.45s ease-in-out;*/
+	// font-family:inherit;
+
 	-webkit-transition:all 0.45s ease-in-out;
 	-moz-transition:all 0.45s ease-in-out;
 	transition:all 0.45s ease-in-out;
@@ -85,15 +90,7 @@ form input[type="email"],
 form input[type="password"],
 form input[type="telephone"],
 form textarea {
-	// max-width:500px;
-	// height: 30px;
-	height:2em;
-	background:#f4f4f4;
-	border:1px solid $bd_color2;
-	// padding:4px 0;
-	color:#303030;
-	// text-indent:8px;
-	@include box-shadow(inset 1px 1px 5px 0px rgba(0,0,0,0.4));
+
 }
 
 input, textarea, select {

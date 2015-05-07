@@ -7,10 +7,11 @@
 <script src="js/libs/jquery.preload.min.js"></script>
 <script src="js/libs/jquery.easing.1.3.js"></script>
 <script src="js/libs/jquery.mousewheel.js"></script>
-<!-- <script src="js/libs/material.js"></script> -->
-<!-- <script src="js/libs/ripples.js"></script> -->
+<!-- <script src="plugin/bootstrap-material-design/js/material.js"></script> -->
+<!-- <script src="plugin/bootstrap-material-design/js/ripples.js"></script> -->
 <script src="js/libs/classie.js"></script>
-<script src="js/libs/pathLoader.js"></script>
+<!-- <script src="plugin/pathLoader/main.js"></script> -->
+<!-- <script src="plugin/pathLoader/pathLoader.js"></script> -->
 <script src="plugin/FlexSlider/jquery.flexslider.js"></script>
 <script src="js/au.js"></script>
 

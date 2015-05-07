@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 button {
-	/*background-color:#2ba6cb;*/
-	/*border: 1px solid #2284a1;*/
-	/*margin:0 0 1.25em;*/
-	/*padding: 0.75em 1.5em 0.8125em 1.5em;*/
+	// background-color:#2ba6cb;
+	// border: 1px solid #2284a1;
+	// margin:0 0 1.25em;
+	// padding: 0.75em 1.5em 0.8125em 1.5em;
 	position:relative;
-	/*display:inline-block;*/
-	color:#fff;
+	// display:inline-block;
+	// color:#fff;
 	font-size:1em;
 	font-weight:bold;
 	text-decoration:none;
@@ -21,25 +21,28 @@ button {
 }
 
 .btn {
-	@include bg(#727171);
+	// @include bg(#727171);
 	position: relative;
 	border: 0;
 	cursor: pointer;
-	color: rgba(255, 255, 255, .84);
+	// color: rgba(255, 255, 255, .84);
 	border-radius: 5px;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align:center;
-	@include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
-	outline: 0!important;
+	// @include transition(all 0.3s cubic-bezier(0.4, 0, .2, 1));
+	// outline: 0!important;
 	// display: table;
 	display:inline-block;
 	a, input, button {
-		padding: 6px 13px;
-		color: #fff;
+		@include wh;
+		// padding: 6px 13px;
+		// color: #fff;
 		font-size: $fz-L;
 		font-weight: bold;
 		letter-spacing: 1px;
+		border: none;
+		background: none;
 	}
 	a {
 		// display: table-cell;
@@ -49,8 +52,8 @@ button {
 		background: none;
 	}
 	&:hover {
-		@include bg(#007BBF);
-		@include box-shadow(1px 1px 3px #999);
+		// @include bg(#007BBF);
+		// @include box-shadow(1px 1px 3px #999);
 		a, input {
 			color: #fff;
 		}
@@ -58,81 +61,72 @@ button {
 	&:active {
 		@include hover;
 	}
+	&-default.btn {
+		&:hover {
+			background-color: lighten($normal_color2, 20%);
+		}
+	}
 
 /*========================================================================*\
 		project 
 \*========================================================================*/
-	&-IPC {
-		@include bg($normal_color);
-		box-shadow: inset 0px 0px 13px rgba(#242c56, 0.3);
-		border-radius: 10px;
-		input {
-			color: $normal_color2;
-			font-family: $normal_font2;
-			font-weight: bolder;
-		}
-	}
-
-	&-fb_login {
-		height: 50px;
-		@include background-image(linear-gradient(#e1e1e1, #fff 50%, #e1e1e1 51%, #e1e1e1));
-		border-radius: 5px;
-		border: 1px solid #aca7a7;
-		padding: 0 0.5em;
-		margin-bottom: 1em;
-		position: relative;
-		&:hover {
-			@include hover;
-		}
-		.txt {
-			@include bg-t(-237px, -304px);
-			// @include vc;
-			// margin-top: 0.25em;
-			.memMod & {
-				@include wh(167px, 31px);
-			}
-		}
-		.icon {
-			// margin-top: 0;
-			// margin-top: 0.25em;
-			// @include vc;
-		}
+	&-back {
+		display: table;
+		margin: 1em auto 0;
+		padding: 0.3em;
+		
+		border: 1px solid #5c2113;
+		border-radius: 0;
 		button {
-			@include wh;
-			margin: 0;
-			padding: 0;
+			@include wh(40, 13);
+			@include bg-t(0, 0);
+		}
+		&:hover {
+			@include bg(lighten($normal_color2, 20%));
+		}
+		&.btn {
+			@include bg(#fff);
 		}
 	}
-	@each $btn, $Color1, $Color2 in
-		(login, #006ab9, #0083cf),
-		(join, #f15d00, #f17700),
-		(send, #cc1900, #d82c13) {
-		&-#{$btn} {
-			height: 35px;
-			@include background-image(linear-gradient($Color1, $Color2 50%, $Color1 51%));
-			&:hover {
-				@include background-image(linear-gradient(darken($Color1, 3%), darken($Color2, 3%) 50%, darken($Color1, 3%) 51%));
+	&-send {
+		// margin: 0;
+		&:hover {
+			@include bg(#5c2113);
+			button {
+				color: #fff;
 			}
 		}
 	}
-	&-closeWindow {
-		@include wh(140px, 30px);
-		@include background-image(linear-gradient(#2287d3, #0062ac));
-		display: block;
-		margin: auto;
-		padding-top: 0;
-		padding-bottom: 0;
-		span {
-			@include wh(80px, 100%);
-			@include bg-t(-508px, -199px);
-			display: block;
-			margin: auto;
+	&-reset.btn {
+		&:hover {
+			@include bg(#727171);
+			border: 1px solid #727171;
+			button {
+				color: #fff;
+			}
 		}
 	}
-	&-couponSubmit {
-		@include background-image(linear-gradient(#ff9200, #ef6800));
-	}
-
 
 }//.btn
 
+
+
+
+
+.headerCtrl {
+	@include circle(34px);
+	@include bg('icons.png');
+	margin: 0 auto;
+	position: relative;
+	top: -20px;
+	cursor: pointer;
+	@include transition(box-shadow 0.3s ease-in);
+	&:hover {
+		@include scale(1.1);
+		box-shadow: 1px 1px 3px #333;
+	}
+	&.open {
+		// @include rotate(180deg);
+		@include bg('icons.png', -44px, 0);
+	}
+}
