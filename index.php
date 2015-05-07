@@ -32,7 +32,7 @@
 
 <body class="index_page">
 
-
+Au Template
 
 <?php
 // -------------------------------
