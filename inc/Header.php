@@ -26,7 +26,7 @@
 </script>
 
 <?php 
-require_once 'inc/au.php';
+require_once 'inc/aunav.php';
  ?>
 <div id="top"></div>
 <header class="global_hd">
