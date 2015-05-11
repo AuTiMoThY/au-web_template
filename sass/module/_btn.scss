@@ -112,21 +112,3 @@ button {
 
 
 
-
-.headerCtrl {
-	@include circle(34px);
-	@include bg('icons.png');
-	margin: 0 auto;
-	position: relative;
-	top: -20px;
-	cursor: pointer;
-	@include transition(box-shadow 0.3s ease-in);
-	&:hover {
-		@include scale(1.1);
-		box-shadow: 1px 1px 3px #333;
-	}
-	&.open {
-		// @include rotate(180deg);
-		@include bg('icons.png', -44px, 0);
-	}
-}
