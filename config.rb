@@ -2,11 +2,11 @@
 
 # Set this to the root of your project when deployed:
 http_path = "../"
-css_dir = "css"
+css_dir = "dist/css"
 sass_dir = "sass"
-images_dir = "images"
-javascripts_dir = "js"
-fonts_dir = "css/fonts"
+images_dir = "dist/images"
+javascripts_dir = "dist/js"
+fonts_dir = "dist/css/fonts"
 
 # Set the images directory relative to your http_path or change
 # the location of the images themselves using http_images_path:
