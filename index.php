@@ -1,7 +1,8 @@
 <?php
-  include_once 'dist/inc/headleader.php';
- ?>
-
+	include_once 'config.php';
+	include_once INC_PATH.'headleader.php';
+	require_once INC_PATH.'aunav.php';
+?>
 <title></title>
 
 <?php
@@ -10,13 +11,13 @@
 // CSS
 // Script in the HEAD
 // -------------------------------
-  include_once 'dist/inc/head.php';
+  include_once INC_PATH.'head.php';
  ?>
 
 
 <?php
 //app
-  include_once 'dist/inc/social.php';
+  include_once INC_PATH.'social.php';
  ?>
 
 <!--[if lt IE 9]>
@@ -34,14 +35,14 @@ Au Template
 // -------------------------------
 // Script in the FOOT
 // -------------------------------
-  include_once 'dist/inc/scriptfoot.php';
+  include_once INC_PATH.'scriptfoot.php';
  ?>
 
 <?php
 // -------------------------------
 // google analytics
 // -------------------------------
-  include_once 'dist/inc/ga.php';
+  include_once INC_PATH.'ga.php';
  ?>
 
 </body>

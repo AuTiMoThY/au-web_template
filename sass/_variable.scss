@@ -1,19 +1,49 @@
 @charset "UTF-8";
 
-$cnt_width: 1370px;
+$cnt_width: 1140px;
 
-
-
-
-$bd_w: 2px;
-
-$header_h: 73px;
 
 //------------------------------------*\
 //		color
 //------------------------------------*/
 //project
-$normal_color: #efd9b8;
+
+$colors:(
+	nor: (
+		1 : #12377a,
+		2 : #e60012,
+		3 : #fdd209,
+		4 : #e67800,
+		5 : #af1355,
+		6 : #18a482,
+		7 : #54d4d5,
+
+		logo_color1     : #6EB92B,
+		logo_color2     : #5C605D,
+
+		green           : #6fba2c,
+
+		hover_color     : #bc0021,
+		footer_color    : #585858
+	      ),
+	gr:(
+        1           : #595757,
+        2           : #747474,
+        3           : #6b6b6b,
+        4           : #9b9b9b,
+        5           : #dddddd,
+        6           : #b6b6b6,
+        7           : #e3e2e2,
+        8           : #e0e0e0,
+
+        bg_color    : #fafafa
+	    )
+         );
+
+
+
+$normal_color: #12377a;  //主色
+$normal_color1: #e60012;  //輔色1
 
 
 
