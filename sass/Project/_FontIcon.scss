@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+$icon-spacing: 1px;
+$icon-layout: horizontal;
+// @import "txt_img/*.png";
+// @import "txt_title/*.png";
+// @include all-txt_img-sprites;
+// @include all-txt_title-sprites;
+
+
+// .txt_img {
+// 	&-index {
+// 		@each $name in video, news, column {
+// 			&-#{$name} {
+// 				@include wh2(txt_img-sprite-width(index-#{$name}) txt_img-sprite-height(index-#{$name}));
+// 			}
+// 		}
+// 	}
+// }
+// .txt_title {
+// 	&-title {
+// 		@each $name in news, understanding_1, understanding_2, understanding_3, symptoms_1, symptoms_2, diagnosis_1, diagnosis_2, diagnosis_3, diagnosis_4, diagnosis_5, coexisting_1, coexisting_2, coexisting_3, information, upload_pic, faq, msg, media, links {
+// 			&-#{$name} {
+// 				@include wh2(txt_title-sprite-width(title-#{$name}) txt_title-sprite-height(title-#{$name}));
+// 			}
+// 		}
+// 	}
+// }
+
+// .txt {
+// 	&-fc1 {
+// 		color: color($colors, nor, font_c1);
+// 		font-size: em(15);
+// 		letter-spacing: 1px;
+// 	}
+// 	&-fc2 {
+// 		color: #3e3a39;
+// 	}
+// 	&-r {
+// 		color: #ff0000;
+// 	}
+// }
+// p.txt-fc1 {
+// 	margin-bottom: 3em;
+// }
+// .title-fc1 {
+// 	color: color($colors, nor, font_c1);
+// 	font-weight: bolder;
+// 	font-size: em(17);
+// }
+
+
+// button.icon {
+// 	margin: 0;
+// 	border: none;
+// }
+
+
+// .icon {
+// 	&-playBtn {
+// 		@include wh2(75 76);
+// 		@include bg-i(0, 0);
+// 	}
+// 	.information_page .list-item-header & {
+// 		display: inline-block;
+// 		vertical-align: middle;
+// 		@include wh2(40);
+// 		margin-right: 0.8em;
+// 		&-step1-row2 {
+// 			@include bg-i(-110, 0);
+// 		}
+// 		&-step1-row3 {
+// 			@include bg-i(-110, -41);
+// 		}
+// 		&-step2-row2 {
+// 			@include bg-i(-110, -82);
+// 		}
+// 	}
+// 	#notifications-full-icon & {
+// 		@include absolute(0, 0, 0, 0);
+// 		margin: auto;
+// 		display: block;
+// 		@include wh2(40);
+// 		@include bg-i(-110, -41);
+// 	}
+
+// }
+

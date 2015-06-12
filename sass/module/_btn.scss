@@ -61,11 +61,18 @@ button {
 	&:active {
 		@include hover;
 	}
-	&-default.btn {
+	&-default.btn.btn {
+		padding: 0.5em 1.2em;
+		@include bg(#98c7d2);
+		color: #004f5b;
+		border: 1px solid #004f5b;
+		border-radius: 0;
 		&:hover {
-			background-color: lighten($normal_color2, 20%);
+			background-color: #004f5b;
+			color: #fff;
 		}
 	}
+
 
 /*========================================================================*\
 		project 
@@ -106,9 +113,57 @@ button {
 			}
 		}
 	}
+	&-assess {
+		display: block;
+		@include wh2(115 30);
+		@include bg(#004f5b);
+		color: #fff;
+		text-align: center;
+		line-height: 30px;
+	}
+	&-cancel.btn.btn {
+		margin-right: 2em;
+	}
+	&-next.btn.btn {
+		
+	}
+	&-adm.btn.btn {
+		@include bg(color($colors, nor, 2));
+		margin: 0;
+		padding: 0.3em 0.8em;
+	}
+	&-adm-reply {
+		// @include absolute(-1.5em);
+	}
+	&-adm-del {
+
+	}
 
 }//.btn
 
+#marqueeBtn {
+	&.btn {
+		position: absolute;
+		right: 0;
+		width: 15px;
+	}
+}
 
-
-
+.more_btn {
+	@include absolute($r:50px, $b:20px);
+	@include wh2(60 20);
+	@include bg(#ecce54);
+	border: 1px solid #172934;
+	transition: all 0.1s ease-out;
+	a {
+		@include wh2;
+		display: block;
+		color: #000;
+		font-size: em(11);
+		line-height: 20px;
+		text-align: center;
+	}
+	&:hover {
+		box-shadow: 1px 1px 3px #666;
+	}
+}

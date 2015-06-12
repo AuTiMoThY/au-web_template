@@ -1,11 +1,8 @@
 <?php
 // fb-root
-  include_once INC_PATH.'fbscript.php';
+//  include_once INC_PATH.'fbscript.php';
  ?>
 
-<?php 
-require_once 'inc/aunav.php';
- ?>
 <div id="top"></div>
 <header class="global_hd">
 	<div class="wrapper">

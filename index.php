@@ -29,7 +29,23 @@
 
 <body class="index_page">
 
-Au Template
+<?php
+// -------------------------------
+// header.php inclube fb code
+// -------------------------------
+  include_once INC_PATH.'header.php';
+ ?>
+
+<main>
+	Au Template
+</main>
+
+<?php
+// -------------------------------
+// Footer
+// -------------------------------
+  include_once INC_PATH.'footer.php';
+ ?>
 
 <?php
 // -------------------------------

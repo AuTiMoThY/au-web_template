@@ -2,7 +2,7 @@
 
 //------------------------------------*\
 //		AuTiMoThY
-//		V 5.0.0
+//		V 5.0.1
 //------------------------------------*/
 @import "function/contains";
 @import "function/is-length";
@@ -216,7 +216,11 @@
 	width: 100%;
 	height: 0;
 	padding-bottom: ($bgH / $bgW) * 100%;
-	@include bg('#{$bg}', 50%, 50%);
+	@if $bg == "null" {
+		@include bg(50%, 50%);
+	} @else {
+		@include bg('#{$bg}', 50%, 50%);
+	}
 	@include background-size(cover);
 }
 

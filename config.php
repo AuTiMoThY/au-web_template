@@ -1,7 +1,7 @@
 <?php 
-define('IMG_PATH', 'dist/images/');
-define('TEMP_IMG_PATH', 'dist/images/temp/');
-define('INC_PATH', 'dist/inc/');
+define('IMG_PATH', 'asset/images/');
+define('TEMP_IMG_PATH', 'asset/images/temp/');
+define('INC_PATH', 'views/inc/');
 
 function path_au($what) {
 	switch ($what) {
