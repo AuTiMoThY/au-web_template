@@ -1,0 +1,12 @@
+User-agent: Mediapartners-Google
+Disallow: 
+
+User-agent: *
+Disallow: /search
+Allow: /
+
+# Sitemap: http://www.dami.tw/feeds/posts/default?orderby=UPDATED
+
+User-agent: *
+Disallow: /disappearing/ # These pages move a lot.
+Disallow: /error404.html

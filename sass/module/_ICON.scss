@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+
+button.icon {
+	margin: 0;
+	border: none;
+}
+
+.menu-icon {
+	&-block {
+		position: relative;
+		@include wh2;
+	}
+	i {
+		position: absolute;
+		display: block;
+		margin: auto;
+		width: 80%;
+		height: 3px;
+		@include bg(#fff);
+		transition: all 0.3s $easing1;
+		&.b1 {
+			top: 25%;
+		}
+		&.b2 {
+			top: 50%;
+		}
+		&.b3 {
+			top: 75%;
+		}
+	}
+	&.open {
+		.b1 {
+			top: 50%;
+			// left: 10px;
+			width: 70%;
+			transform:rotate(45deg);
+		}
+		.b2 {
+			// left: 25%;
+			width: 0;
+			@include opacity(0);
+		}
+		.b3 {
+			top: 50%;
+			// left: 10px;
+			width: 70%;
+			transform:rotate(-45deg);
+		}
+	}
+}
+
+.icon {
+
+
+}
+

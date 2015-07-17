@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+$notiW: 980px;
+$notiH: 760px+40;
+
+#notifications {
+	position: fixed;
+	z-index: 999;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	height: 100%;
+	display: none;
+	@include bg(rgba(#000, 0.7));
+	&.active {
+		display: block;
+	}
+	&-bg {
+
+	}
+}
+#notifications-full{
+	@include absolute(0, 0, 0, 0);
+	margin: auto;
+	// position: fixed;
+	z-index: 1000;
+	// left: 50%;
+	// top: 10%;
+	width: $notiW;
+	height: $notiH;
+	-moz-box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
+	border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.95);
+	// background-color: rgba(255,255,255,1);
+	// margin-top: 10%;
+	// margin-left: $notiW / 2 * -1;
+}
+#notifications-full-close{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 1001;
+	height: 20px;
+	width: 20px;
+	color: #cccccc;
+	font-size: 20px;
+	line-height: 20px;
+	text-align: center;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+#notifications-full-close:hover {
+	color: rgba(102,102,102,1);
+	cursor: pointer;
+}
+#notifications-full-icon{
+	position: relative;
+	float: left;
+	width: 100%;
+	font-size: 65px;
+	text-align: center;
+	height: 65px;
+	// margin-top: 35px;
+	color: #404040;
+	@include bg($font_c1);
+}
+#notifications-full-text{
+	width: 100%;
+	float: left;
+	padding: em(40px) em(50) 0;
+	// margin-left: 50px;
+	// margin-top: 40px;
+	text-align: left;
+	font-size: 16px;
+	line-height: 24px;
+	@include adjFontSize(16px, 1.6);
+	letter-spacing: 1px;
+	color: #fff;
+	// color: $normal_color;
+	ul {
+		padding-left: 1.5em;
+		list-style-type: decimal;
+	}
+}
+

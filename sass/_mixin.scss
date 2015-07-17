@@ -11,6 +11,11 @@
 // @author Hugo Giraudel
 ////
 
+@function is-dib($value) {
+	
+	@return $value == 'dib';
+}
+
 @function is-number($value) {
   @return type-of($value) == 'number';
 }
@@ -103,7 +108,7 @@
 	} @else if (not(is-string($width)) and unitless($width)) {
 		width: $width * 1px;
 	} @else {
-		@warn "`#{$width}`";
+		//@warn "`#{$width}`";
 	}
 
 	@if is-size($height) {
@@ -111,7 +116,7 @@
 	} @else if (not(is-string($height)) and unitless($height)) {
 		height: $height * 1px;
 	} @else {
-		@warn "`#{$height}`";
+		//@warn "`#{$height}`";
 	}
 
 
@@ -175,9 +180,24 @@
 	@include translate($top, $left);
 }
 
-@mixin psudoClass() {
-	content: '';
-	display: block;
+@mixin psudoClass($display:null) {
+	@if is-dib($display) {
+		content: '';
+		display: inline-block;
+	} @else {
+		content: '';
+		display: block;
+	}
+}
+
+/// Since the current way to qualify a class from within its ruleset is quite
+/// ugly, here is a mixin providing a friendly API to do so.
+/// @author Hugo Giraudel
+/// @param {String} $element-selector - Element selector
+@mixin qualify($element-selector) {
+  @at-root #{$element-selector + &} {
+    @content;
+  }
 }
 
 
@@ -213,15 +233,17 @@
 }
 
 @mixin bgRWD($bg, $bgW, $bgH) {
-	width: 100%;
-	height: 0;
-	padding-bottom: ($bgH / $bgW) * 100%;
-	@if $bg == "null" {
-		@include bg(50%, 50%);
+	@if $bg == 'null' {
+		@include wh2(100% 0);
+		padding-bottom: ($bgH / $bgW) * 100%;
+		@include background-size(cover);
 	} @else {
+		width: 100%;
+		height: 0;
+		padding-bottom: ($bgH / $bgW) * 100%;
 		@include bg('#{$bg}', 50%, 50%);
+		@include background-size(cover);
 	}
-	@include background-size(cover);
 }
 
 @function color($map, $keys...) {
@@ -510,7 +532,7 @@ $easeSean: (
   @else if $screenWidth == Tablet {
     @media screen and (max-width: 768px) { @content; }
   }
-  @else if $screenWidth == Mobile {
+  @else if $screenWidth == Mobile or m {
     @media screen and (max-width: 480px) { @content; }
   }
 }
