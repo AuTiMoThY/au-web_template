@@ -1,7 +1,7 @@
 <?php 
-define('IMG_PATH', 'asset/images/');
-define('TEMP_IMG_PATH', 'asset/images/temp/');
-define('INC_PATH', 'views/inc/');
+define('IMG_PATH', 'dist/images/');
+define('TEMP_IMG_PATH', 'dist/images/temp/');
+define('INC_PATH', 'dist/inc/');
 
 define('PROJECT', '肢端肥大症 衛教資訊網');
 define('KEYWORDS', '網站關鍵字在這');

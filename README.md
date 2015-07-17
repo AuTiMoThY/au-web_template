@@ -1,22 +1,15 @@
-# au-web_template
+# au-web_template V9.5.1
 
 template
 
 ## 架構
 
 ```
-asset/
+dist/
 	└ css/
 	└ images/
 	└ js/
-bin/
-	└ MailHandler.php
-plugin/
-	└
-sass/
-	└
-views/
-	└inc/
+	└ inc/
 		└ aunav.php
 		└ fbscript.php
 		└ footer.php
@@ -27,6 +20,12 @@ views/
 		└ pageBtn.php
 		└ scriptfoot.php
 		└ social.php
+	└ MailHandler.php
+plugin/
+	└
+sass/
+	└
+
 config.php
 index.php
 ```
