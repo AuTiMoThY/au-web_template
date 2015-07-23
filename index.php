@@ -33,25 +33,27 @@
 // -------------------------------
 // header.php inclube fb code
 // -------------------------------
-  include_once INC_PATH.'header.php';
+//  include_once INC_PATH.'header.php';
  ?>
 
 <main>
-	Au Template
+  
+
+
 </main>
 
 <?php
 // -------------------------------
 // Footer
 // -------------------------------
-  include_once INC_PATH.'footer.php';
+//  include_once INC_PATH.'footer.php';
  ?>
 
 <?php
 // -------------------------------
 // Script in the FOOT
 // -------------------------------
-  include_once INC_PATH.'scriptfoot.php';
+//  include_once INC_PATH.'scriptfoot.php';
  ?>
 
 <?php
