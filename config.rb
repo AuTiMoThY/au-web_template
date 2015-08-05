@@ -2,11 +2,11 @@
 
 # Set this to the root of your project when deployed:
 http_path = "../"
-css_dir = "asset/css"
+css_dir = "dist/css"
 sass_dir = "sass"
-images_dir = "asset/images"
-javascripts_dir = "asset/js"
-fonts_dir = "asset/css/fonts"
+images_dir = "dist/images"
+javascripts_dir = "dist/js"
+fonts_dir = "dist/css/fonts"
 
 # Set the images directory relative to your http_path or change
 # the location of the images themselves using http_images_path:
@@ -35,3 +35,5 @@ sourcemap = true
 
 # Edit the project configuration file and add:
 require 'ceaser-easing'
+require 'bootstrap-sass'
+# require 'compass/import-once/activate'

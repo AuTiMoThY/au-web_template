@@ -1,6 +1,56 @@
 @charset "UTF-8";
 
-.editorDF {}
+#justfont-badge {
+	@include opacity(0);
+	display: none !important;
+}
+
 /*========================================================================*\
 		>>	layout main
 \*========================================================================*/
+main {
+	&>.wrapper {
+		@include rhythm-padding(2.8, 1.8);
+		.teams_page & {
+			@include padding-leader(1);
+		}
+	}
+}
+section {
+	&.bar {
+		padding: 2.5em 0;
+	}
+	&.fullbg {
+		background-color: #fff;
+	}
+}
+
+/*========================================================================*\
+		>>	banner
+\*========================================================================*/
+$pageMap:(
+('service_page', 'service', '366'),
+('teams_page', 'teams', '366'),
+('goddess_page', 'goddess', '400'),
+('news_page', 'news', '400'),
+('contact_page', 'contact', '369')
+       );
+
+.banner {
+	width: 100%;
+	background-size: cover;
+	@each $page, $banner, $bannerH in $pageMap {
+		.#{$page} & {
+			height: #{$bannerH}px;
+			@include bg('banner-#{$banner}.jpg', 50%, 50%);
+			// background-position: 50% 50%;
+			// @include bgRWD('banner-#{$banner}.jpg',  1920,  366);
+		}
+	}
+	.service_page & {
+		// @include bgRWD('banner',  $bgW,  $bgH);;
+	}
+}
+
+
+

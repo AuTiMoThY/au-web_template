@@ -1,16 +1,17 @@
 @charset "UTF-8";
 
-$cnt_width: 1140px;
+$cnt_width: 1200px;
 
 
 //------------------------------------*\
 //		color
 //------------------------------------*/
 //project
-$normal_color: #12377a;  //主色
-$normal_color1: #e60012;  //輔色1
+$normal_color: #45bcb4;  //主色
+$normal_color1: #282828;  //輔色1
+$normal_color2: #84d8d1;
 
-$normal_color2: #fdd209;
+
 $normal_color3: #e67800;
 $normal_color4: #af1355;
 $normal_color5: #18a482;
@@ -58,8 +59,9 @@ $DF_color2: #747474;
 //		font
 //------------------------------------*/
 $normal_font: "Microsoft JhengHei", "微軟正黑體", \5FAE\x8F6F\6B63\9ED1\4F53, Arial, "Helvetica Neue", Helvetica;
+$normal_font4: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "蘋果儷中黑", "Apple LiGothic Medium", "微軟正黑體", "Microsoft JhengHei", sans-serif;
 $normal_font2: "PMingLiU", \65B0\7EC6\660E\4F53, Arial, "Helvetica Neue", Helvetica, sans-serif;
-$normal_font3: Arial, "Helvetica Neue", Helvetica, sans-serif;
+$normal_font3: "Helvetica Neue", Arial, Helvetica, sans-serif;
 $ff-CenturyGothic: "Century Gothic", CenturyGothic, Geneva, AppleGothic, sans-serif;
 $ff-Verdana: Verdana, "Geneva", sans-serif;
 $ff-Helvetica:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -102,6 +104,7 @@ $borderRadius: 8px; // 圓角半徑
 
 $boxShadow: 0px 9px 21px rgba(0, 0, 0, 0.75);
 $boxShadowHover: 3px 10px 21px rgba(0, 0, 0, 1);
+$boxShadowHover1: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
 
 
 // $fill_in_table_bg: #edecea;

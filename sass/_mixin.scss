@@ -2,7 +2,7 @@
 
 //------------------------------------*\
 //		AuTiMoThY
-//		V 5.0.1
+//		V 5.0.2
 //------------------------------------*/
 @import "function/contains";
 @import "function/is-length";
@@ -195,7 +195,7 @@
 /// @author Hugo Giraudel
 /// @param {String} $element-selector - Element selector
 @mixin qualify($element-selector) {
-  @at-root #{$element-selector + &} {
+  @at-root #{$element-selector} & {
     @content;
   }
 }
@@ -279,12 +279,12 @@
 /// @param {Length} $right [null] - Right offset
 /// @param {Length} $bottom [null] - Bottom offset
 /// @param {Length} $left [null] - Left offset
-@mixin position($position, $t: null, $r: null, $b: null, $l: null) {
+@mixin position($position, $T: null, $R: null, $B: null, $L: null) {
   position: $position;
-  top: $t;
-  right: $r;
-  bottom: $b;
-  left: $l;
+  top: $T;
+  right: $R;
+  bottom: $B;
+  left: $L;
 }
 /// Shorthand mixin for absolute positioning
 /// Serves as an alias for `position(absolute, ...)`
@@ -540,6 +540,23 @@ $easeSean: (
 //========================================================================*\
 //	>	project
 //========================================================================*/
+@mixin linkeffect($lineColor) {
+	position: relative;
+	&:after {
+		@include psudoClass;
+		@include absolute($B:0, $L:0, $R:0);
+		@include wh(0%, 1);
+		@include bg(rgba($lineColor, 0));
+		margin: auto;
+		transition: all 0.3s $easeInOutCubic;
+	}
+	&:hover {
+		&:after {
+			width: 100%;
+			@include bg(rgba($lineColor, 1));
+		}
+	}
+}
 @mixin Diamond($color, $w, $h:$w) {
 	left: -1em;
 	@include wh($w, $h);

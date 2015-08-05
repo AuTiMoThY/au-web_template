@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-$notiW: 980px;
-$notiH: 760px+40;
+$notiW: 480px;
+$notiH: 260px;
 
-#notifications {
+.fancyDFAu {
 	position: fixed;
 	z-index: 999;
 	float: left;
@@ -11,7 +11,28 @@ $notiH: 760px+40;
 	overflow: hidden;
 	height: 100%;
 	display: none;
-	@include bg(rgba(#000, 0.7));
+	&-bg {
+		@include wh2;
+		background-color: rgba(#000, 0);
+		@include transition(all 0.3s $easing1);
+	}
+	&.open {
+		display: block;
+		.fancyDFAu-bg {
+			background-color: rgba(#000, 0.5);
+		}
+	}
+}
+
+#notifications {
+	// position: fixed;
+	// z-index: 999;
+	// float: left;
+	// width: 100%;
+	// overflow: hidden;
+	// height: 100%;
+	// display: none;
+	// @include bg(rgba(#000, 0.7));
 	&.active {
 		display: block;
 	}
@@ -20,6 +41,7 @@ $notiH: 760px+40;
 	}
 }
 #notifications-full{
+	// display: none;
 	@include absolute(0, 0, 0, 0);
 	margin: auto;
 	// position: fixed;
@@ -28,23 +50,24 @@ $notiH: 760px+40;
 	// top: 10%;
 	width: $notiW;
 	height: $notiH;
+	padding: 1.2em;
 	-moz-box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
 	box-shadow: 0px 0px 50px rgba(0,0,0,0.5);
-	border-radius: 10px;
-	background-color: rgba(0, 0, 0, 0.95);
+	// border-radius: 10px;
+	background-color: rgba(0, 0, 0, 0.8);
 	// background-color: rgba(255,255,255,1);
 	// margin-top: 10%;
 	// margin-left: $notiW / 2 * -1;
 }
 #notifications-full-close{
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: -10px;
+	right: -10px;
 	z-index: 1001;
 	height: 20px;
 	width: 20px;
-	color: #cccccc;
+	color: #fff;
 	font-size: 20px;
 	line-height: 20px;
 	text-align: center;
@@ -52,11 +75,33 @@ $notiH: 760px+40;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
-}
-#notifications-full-close:hover {
-	color: rgba(102,102,102,1);
 	cursor: pointer;
+	&:before {
+		@include psudoClass;
+		@include absolute($T:-4px, $L:-4px);
+		z-index: 10;
+		@include wh2(28px);
+		background-color: #000;
+		border-radius: 50%;
+		border: 2px solid #ccc;
+	}
+	.fa {
+		position: relative;
+		z-index: 11;
+		color: #fff;
+		vertical-align: 0.1ex;
+		@include transition(all 0.3s ease(in-out-quad));
+	}
+	&:hover {
+		.fa {
+			color: $normal_color;
+		}
+	}
+	&:active {
+		@include hover;
+	}
 }
+
 #notifications-full-icon{
 	position: relative;
 	float: left;
@@ -66,12 +111,12 @@ $notiH: 760px+40;
 	height: 65px;
 	// margin-top: 35px;
 	color: #404040;
-	@include bg($font_c1);
+	// @include bg($font_c1);
 }
 #notifications-full-text{
 	width: 100%;
-	float: left;
-	padding: em(40px) em(50) 0;
+	background-color: #fff;
+	// float: left;
 	// margin-left: 50px;
 	// margin-top: 40px;
 	text-align: left;
@@ -84,6 +129,9 @@ $notiH: 760px+40;
 	ul {
 		padding-left: 1.5em;
 		list-style-type: decimal;
+	}
+	div {
+		padding: 0;
 	}
 }
 

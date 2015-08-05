@@ -1,7 +1,135 @@
 @charset "UTF-8";
 
 .mod {
-	
+	&-block {
+		figure {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			@include transition(all 0.3s ease(in-out-cubic));
+			&:hover {
+				box-shadow: $boxShadowHover1;
+				img {
+					@include scale(1.05);
+				}
+				.mod-block-go:after {
+					// @include scale(1.05);
+					-webkit-transform: scale(1.05, 1.05) rotate(45deg);
+					   -moz-transform: scale(1.05, 1.05) rotate(45deg);
+					    -ms-transform: scale(1.05, 1.05) rotate(45deg);
+					     -o-transform: scale(1.05, 1.05) rotate(45deg);
+					        transform: scale(1.05, 1.05) rotate(45deg);
+				}
+			}
+		}
+		figcaption {
+			@include absolute($B:0, $L:0);
+			width: 100%;
+			padding: 0.8em 1em;
+			background-color: rgba(#fff, 0.75);
+		}
+		&-pic {
+			&.index_service-pic {
+				@include bgRWD('null', 280, 380);
+			}
+		}
+		img {
+			@include transition(all 0.3s ease);
+		}
+		p {
+			@include ellipsis;
+		}
+		&-h1 {
+			color: #282828;
+			@include adjFontSize(33px);
+			font-family: "sourcehansans-tc";
+			-webkit-font-smoothing: antialiased;
+			text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.3);
+		}
+		&-h2 {
+			color: #282828;
+			@include adjFontSize(12px);
+			font-family: $ff-Helvetica;
+			font-weight: 600;
+			letter-spacing: 2px;
+		}
+		&-go {
+			@include absolute($R:-45px, $B:-45px);
+			@include wh2(90);
+			// @include transition(all 0.3s ease);
+			&:after {
+				@include psudoClass;
+				@include absolute($T:0, $L:0);
+				z-index: 9;
+				// @include transform-origin(50% 100%);
+				@include rotate(45deg);
+				@include wh2;
+				background-color: #282828;
+				@include transition(all 0.3s ease);
+			}
+			span {
+				@include absolute($T:15px, $L:15px);
+				z-index: 10;
+				// display: block;
+				// @include wh2;
+				color: #fff;
+				text-transform: uppercase;
+				@include adjFontSize(11px,1);
+			}
+		}
+		&.service_list-item {
+			@include margin-trailer(0.8);
+		}
+	}
+	&-block2 {
+		&:after {
+			@include psudoClass;
+			@include wh2(100% 4);
+			background-color: $normal_color;
+		}
+		figure {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			@include transition(all 0.3s ease(in-out-cubic));
+			&:hover {
+				box-shadow: $boxShadowHover1;
+				img {
+					@include scale(1.05);
+					@include opacity(0.8);
+				}
+			}
+		}
+		figcaption {
+			@include absolute($B:0, $L:0);
+			width: 100%;
+			padding: 0.8em 1em;
+			background-color: rgba(#000, 0.8);
+			color: #fff;
+			@include adjFontSize(14px, 1.2);
+		}
+		&-pic {
+			background-color: $normal_color;
+			&.index_showcase-pic {
+				@include bgRWD('null', 280, 370);
+			}
+		}
+		img {
+			@include transition(all 0.3s ease);
+		}
+		&.goddess_aside-now {
+			figure:hover {
+				box-shadow: none;
+				img {
+					@include scale(1);
+					@include opacity(1);
+				}
+			}
+		}
+		&.goddess_aside-item {
+			@include margin-trailer(0.6);
+		}
+	}
 }//.mod
 
 
