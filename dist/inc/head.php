@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="asset/css/reset.css" />
 <link rel="stylesheet" href="plugin/bootstrap-material-design/css/ripples.css">
 <link rel="stylesheet" href="plugin/bootstrap-material-design/css/material.css">
-<link rel="stylesheet" href="asset/css/font-awesome.css">
+<link rel="stylesheet" href="plugin/fontAwesome/css/fontAwesome.css">
 
 <link rel="stylesheet" href="plugin/FlexSlider/flexslider.css" />
 
