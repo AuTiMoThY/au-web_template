@@ -1,6 +1,11 @@
 [![Build Status](https://secure.travis-ci.org/Prinzhorn/skrollr.png)](http://travis-ci.org/Prinzhorn/skrollr)
 
-skrollr 0.6.29
+Please note:
+============
+
+**skrollr hasn't been under active development since about September 2014** (check out the contributions graphs on https://github.com/Prinzhorn/skrollr/graphs/contributors) and I don't have any plans for doing major changes to it. Please consider this before using skrollr in production as problems with new browser versions, especially on mobile, will most definitely surface. To be honest, mobile support always sucked (because mobile browsers are hard) and you shouldn't compromise UX for some fancy UI effects. Ever.
+
+skrollr 0.6.30
 ==============
 
 Stand-alone **parallax scrolling** JavaScript library for **mobile (Android, iOS, etc.) and desktop** in about 12k minified.
@@ -534,7 +539,7 @@ skrollr ships with some built in functions:
 * outCubic
 * bounce: Bounces like a ball. See https://www.desmos.com/calculator/tbr20s8vd2 for a graphical representation.
 
-**Custom easing** 
+**Custom easing**
 
 * Use [this](http://www.timotheegroleau.com/Flash/experiments/easing_function_generator.htm) generator
 * Insert the given polynomial coeficients instead of t, t2, t3, t4 and t5

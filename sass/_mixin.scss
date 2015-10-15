@@ -2,7 +2,7 @@
 
 //------------------------------------*\
 //		AuTiMoThY
-//		V 5.0.2
+//		V 5.1.0
 //------------------------------------*/
 @import "function/contains";
 @import "function/is-length";
@@ -198,6 +198,22 @@
   @at-root #{$element-selector} & {
     @content;
   }
+}
+@mixin oftype($num) {
+	@if is-number($num) {
+	 	@if $num == 1 {
+	 		&:first-of-type { @content; }
+	 	}
+	 	@else {
+			&:nth-of-type($num) { @content; }
+	 	}
+	}
+	@else if $num == "odd" {
+		&:nth-of-type(odd) { @content; }
+	}
+	@else if $num == "even" {
+		&:nth-of-type(even) { @content; }
+	}
 }
 
 

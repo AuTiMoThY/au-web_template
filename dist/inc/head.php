@@ -10,7 +10,7 @@
 
 <link rel="shortcut icon" href="favicon.ico" />
 
-<link rel="stylesheet" href="asset/css/reset.css" />
+<link rel="stylesheet" href="<?php path_au('css'); ?>reset.css" />
 <link rel="stylesheet" href="plugin/bootstrap-material-design/css/ripples.css">
 <link rel="stylesheet" href="plugin/bootstrap-material-design/css/material.css">
 <link rel="stylesheet" href="plugin/fontAwesome/css/font-awesome.css">
@@ -21,7 +21,7 @@
 <!-- <link rel="stylesheet" href="plugin/FlexSlider/flexslider.css" /> -->
 <!-- <link rel="stylesheet" href="asset/css/effect2.css" /> -->
 
-<link rel="stylesheet" href="asset/css/style.css" />
+<link rel="stylesheet" href="<?php path_au('css'); ?>style.css" />
 
-<script src="asset/js/libs/modernizr-2.7.1.dev.js"></script>
-<script src="asset/js/ModernizrAu.js"></script>
+<script src="<?php path_au('js'); ?>libs/modernizr-2.7.1.dev.js"></script>
+<script src="<?php path_au('js'); ?>ModernizrAu.js"></script>
